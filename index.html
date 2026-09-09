@@ -241,7 +241,10 @@
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:14px;margin-top:14px;align-items:start">
         <section style="background:#fff;border:1px solid #EDEEF4;border-radius:22px;padding:24px 26px;box-shadow:0 1px 2px rgba(25,27,40,.04)">
           <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap">
-            <h2 style="margin:0;font-size:18px;font-weight:700;letter-spacing:-.02em">{{ focusLabel }}</h2>
+            <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap">
+              <h2 style="margin:0;font-size:18px;font-weight:700;letter-spacing:-.02em">{{ focusLabel }}</h2>
+              <span style="font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#5251C9;background:#EFEFFC;padding:3px 9px;border-radius:999px">{{ focusWeekLabel }}</span>
+            </div>
             <span style="font-size:13px;color:#8C90A0">{{ focusRange }}</span>
           </div>
           <p style="margin:8px 0 0;font-size:14.5px;color:#6B7080">{{ focusGoal }}</p>
@@ -652,7 +655,7 @@ class Component extends DCLogic {
 
   constructor(p){
     super(p);
-    this.state = {view:"painel", openWeek:null, toast:"", jsonText:"", ckCol:null, d:this.load()};
+    this.state = {view:"painel", openWeek:null, panelWeek:null, toast:"", jsonText:"", ckCol:null, d:this.load()};
   }
   blank(){ return {startDate:"2026-09-07", goal:6, tasks:{}, deliverables:{}, resources:{}, checklist:{}, notes:{}, savedAt:null}; }
   load(){
@@ -763,8 +766,11 @@ class Component extends DCLogic {
     else if(cw === 13){ eyebrow = "Trilha concluída"; title = "12 semanas percorridas"; sub = "Refaça a autoavaliação e compare com a semana 0."; }
     else { const w = P.weeks[cw-1]; eyebrow = "Semana " + cw + " de 12 · " + this.range(cw); title = w.focus; sub = w.goal; }
 
-    const fw = (cw >= 1 && cw <= 12) ? cw : 1;
+    const firstOpen = P.weeks.find(w => this.weekStats(w).pct < 1);
+    const autoWeek = firstOpen ? firstOpen.n : 12;
+    const fw = this.state.panelWeek || autoWeek;
     const fwk = P.weeks[fw-1];
+    const fws = this.weekStats(fwk);
 
     const chipBase = "width:100%;aspect-ratio:1;min-height:34px;border-radius:12px;border:0;cursor:pointer;font-size:13px;font-weight:600;display:grid;place-items:center;padding:0;";
     const chips = P.weeks.map(w => {
@@ -773,7 +779,12 @@ class Component extends DCLogic {
         : st==="now" ? chipBase+"background:rgba(255,255,255,.3);color:#fff;box-shadow:inset 0 0 0 2px #fff"
         : st==="late" ? chipBase+"background:rgba(255,255,255,.16);color:rgba(255,255,255,.9)"
         : chipBase+"background:rgba(255,255,255,.1);color:rgba(255,255,255,.6)";
-      return {n: w.n, style, title: "Semana " + w.n + ": " + w.focus + " — " + s.done + " de " + s.total, go: () => this.go("semanas", w.n)};
+      return {
+        n: w.n,
+        style: w.n===fw ? style+";outline:2px solid rgba(255,255,255,.92);outline-offset:2px;" : style,
+        title: "Semana " + w.n + ": " + w.focus + " — " + s.done + " de " + s.total,
+        go: () => this.setState({panelWeek: w.n}),
+      };
     });
 
     const barFill = (p, done) => "display:block;height:100%;border-radius:3px;background:" + (done ? "#15A47A" : "#5B5BD6") + ";width:" + this.pct(p);
@@ -868,7 +879,7 @@ class Component extends DCLogic {
       showReserve: this.props.showReserve !== false,
       goAjustes: () => this.go("ajustes"), goSemanas: () => this.go("semanas"), goChecklist: () => this.go("checklist"),
       goFocusWeek: () => this.go("semanas", fw),
-      ctaLabel: cw >= 1 && cw <= 12 ? "Continuar a semana " + cw : "Abrir a semana 1",
+      ctaLabel: (fws.pct === 1 ? "Revisar a semana " : fws.done > 0 ? "Continuar a semana " : "Abrir a semana ") + fw,
       eyebrow, title, sub, chips,
       overallPct: this.pct(all.pct),
       ringStyle: this.ring(all.pct, 116, "rgba(255,255,255,.22)", "#fff"),
@@ -878,7 +889,8 @@ class Component extends DCLogic {
         {l: "Semanas fechadas", v: weeksDone + "/12", badge: badge(weeksDone===12), fill: barFill(weeksDone/12, weeksDone===12)},
         {l: "Entregáveis no portfólio", v: projDone + "/" + projTotal, badge: badge(projDone===projTotal), fill: barFill(projTotal ? projDone/projTotal : 0, projDone===projTotal)},
       ],
-      focusLabel: cw>=1 && cw<=12 ? "Continue de onde parou" : "Comece por aqui",
+      focusLabel: fws.pct === 1 ? "Semana concluída" : fws.done > 0 ? "Continue de onde parou" : "Comece por aqui",
+      focusWeekLabel: "Semana " + fw,
       focusRange: this.range(fw), focusGoal: fwk.goal, focusWork: fwk.work,
       focusTasks: fwk.tasks.map(t => this.taskVM(t)),
       phaseBars, projBars, ckSummary,
