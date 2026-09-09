@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trilha Tech PM</title>
+<meta name="description" content="Trilha de estudos Tech PM — plano semanal, entregas, recursos e checklist, com progresso salvo no seu navegador.">
+<link rel="icon" href="favicon.svg">
+<script>window.__resources = {"https://unpkg.com/react@18.3.1/umd/react.production.min.js": "assets/react.min.js", "https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js": "assets/react-dom.min.js"};</script>
+<script src="assets/runtime.js"></script>
+
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<style>/* cyrillic-ext */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/font-4afc7a3a.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/font-6f2c72a6.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/font-ce8ed896.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/font-46cf9498.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/font-4afc7a3a.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/font-6f2c72a6.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/font-ce8ed896.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/font-46cf9498.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/font-4afc7a3a.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/font-6f2c72a6.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/font-ce8ed896.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/font-46cf9498.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/font-4afc7a3a.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/font-6f2c72a6.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/font-ce8ed896.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/font-46cf9498.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:#F5F6FA;color:#191B28;font-family:"Plus Jakarta Sans",system-ui,sans-serif;font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased;text-wrap:pretty;font-variant-numeric:tabular-nums}
+  a{color:#5251C9;text-decoration:none}
+  a:hover{color:#3F3EA8;text-decoration:underline}
+  input,select,textarea,button{font-family:inherit}
+  ::selection{background:#E2E2FB}
+</style>
+</helmet>
+
+<div style="min-height:100vh;background:#F5F6FA">
+
+<header style="position:sticky;top:0;z-index:20;background:rgba(245,246,250,.85);backdrop-filter:blur(12px);border-bottom:1px solid #EBECF2">
+  <div style="max-width:1160px;margin:0 auto;padding:12px clamp(16px,4vw,36px);display:flex;align-items:center;gap:20px;flex-wrap:wrap">
+    <div style="display:flex;align-items:center;gap:10px;margin-right:auto">
+      <span style="width:30px;height:30px;border-radius:10px;background:linear-gradient(135deg,#6C6CE8,#8A6FE4);display:block"></span>
+      <span style="font-size:16px;font-weight:700;letter-spacing:-.02em">Trilha Tech PM</span>
+    </div>
+    <nav style="display:flex;gap:4px;flex-wrap:wrap" aria-label="Seções">
+      <sc-for list="{{ nav }}" as="it" hint-placeholder-count="5">
+        <button sc-camel-on-click="{{ it.go }}" style="{{ it.style }}">{{ it.label }}</button>
+      </sc-for>
+    </nav>
+    <button sc-camel-on-click="{{ goAjustes }}" style="background:none;border:0;padding:9px 12px;border-radius:999px;cursor:pointer;font-size:14px;font-weight:500;color:#8C90A0" style-hover="color:#191B28">Ajustes</button>
+  </div>
+</header>
+
+<main style="max-width:1160px;margin:0 auto;padding:clamp(20px,3vw,32px) clamp(16px,4vw,36px) 110px">
+
+  <sc-if value="{{ isPainel }}" hint-placeholder-val="{{ true }}">
+    <div>
+      <section style="position:relative;overflow:hidden;border-radius:26px;padding:clamp(28px,4vw,40px);background:linear-gradient(135deg,#6C6CE8 0%,#5B5BD6 48%,#8A6FE4 100%);color:#fff">
+        <div style="display:flex;gap:34px;flex-wrap:wrap;align-items:flex-start;justify-content:space-between">
+          <div style="max-width:560px">
+            <span style="display:inline-block;padding:5px 13px;border-radius:999px;background:rgba(255,255,255,.18);font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase">{{ eyebrow }}</span>
+            <h1 style="margin:16px 0 0;font-size:clamp(28px,3.6vw,42px);font-weight:700;letter-spacing:-.03em;line-height:1.1">{{ title }}</h1>
+            <p style="margin:12px 0 0;font-size:16.5px;line-height:1.55;color:rgba(255,255,255,.82)">{{ sub }}</p>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:26px">
+              <button sc-camel-on-click="{{ goFocusWeek }}" style="border:0;background:#fff;color:#4F4CC4;border-radius:999px;padding:12px 22px;font-size:14.5px;font-weight:600;cursor:pointer" style-hover="background:#F0F0FF">{{ ctaLabel }}</button>
+              <button sc-camel-on-click="{{ goSemanas }}" style="border:1px solid rgba(255,255,255,.45);background:none;color:#fff;border-radius:999px;padding:12px 22px;font-size:14.5px;font-weight:600;cursor:pointer" style-hover="background:rgba(255,255,255,.14)">Ver a trilha</button>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:16px">
+            <div style="{{ ringStyle }}">
+              <div style="position:absolute;inset:9px;border-radius:50%;background:#6262DC;display:grid;place-items:center;text-align:center">
+                <div>
+                  <div style="font-size:24px;font-weight:700;letter-spacing:-.02em;line-height:1">{{ overallPct }}</div>
+                  <div style="font-size:10.5px;font-weight:500;color:rgba(255,255,255,.7);margin-top:3px">concluído</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,255,.18)">
+          <div style="display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:6px">
+            <sc-for list="{{ chips }}" as="c" hint-placeholder-count="12">
+              <button sc-camel-on-click="{{ c.go }}" title="{{ c.title }}" style="{{ c.style }}">{{ c.n }}</button>
+            </sc-for>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-top:10px">
+            <sc-for list="{{ phaseLabels }}" as="p" hint-placeholder-count="3">
+              <span style="font-size:11.5px;font-weight:500;color:rgba(255,255,255,.65)">{{ p.label }}</span>
+            </sc-for>
+          </div>
+        </div>
+      </section>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-top:14px">
+        <sc-for list="{{ stats }}" as="st" hint-placeholder-count="3">
+          <div style="background:#fff;border:1px solid #EDEEF4;border-radius:20px;padding:20px 22px;box-shadow:0 1px 2px rgba(25,27,40,.04)">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+              <span style="font-size:13.5px;font-weight:500;color:#7A7F90">{{ st.l }}</span>
+              <span style="{{ st.badge }}">{{ st.v }}</span>
+            </div>
+            <div style="margin-top:16px;height:6px;border-radius:3px;background:#F0F1F6;overflow:hidden"><span style="{{ st.fill }}"></span></div>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:14px;margin-top:14px;align-items:start">
+        <section style="background:#fff;border:1px solid #EDEEF4;border-radius:22px;padding:24px 26px;box-shadow:0 1px 2px rgba(25,27,40,.04)">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap">
+            <h2 style="margin:0;font-size:18px;font-weight:700;letter-spacing:-.02em">{{ focusLabel }}</h2>
+            <span style="font-size:13px;color:#8C90A0">{{ focusRange }}</span>
+          </div>
+          <p style="margin:8px 0 0;font-size:14.5px;color:#6B7080">{{ focusGoal }}</p>
+          <div style="margin-top:14px">
+            <sc-for list="{{ focusTasks }}" as="t" hint-placeholder-count="2">
+              <div style="display:grid;grid-template-columns:24px 1fr;gap:14px;padding:16px 0;border-top:1px solid #F1F2F7;align-items:start">
+                <button sc-camel-on-click="{{ t.cycle }}" title="{{ t.statusLabel }}" aria-label="{{ t.statusLabel }}" style="{{ t.dot }}"><sc-if value="{{ t.done }}"><span style="font-size:12px;font-weight:700;color:#fff;line-height:1">✓</span></sc-if></button>
+                <div>
+                  <div style="{{ t.titleStyle }}">{{ t.title }}</div>
+                  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:9px">
+                    <span style="{{ t.tagStyle }}">{{ t.type }}</span>
+                    <sc-if value="{{ t.hasUrl }}"><a href="{{ t.url }}" target="_blank" rel="noopener" style="font-size:13px;font-weight:500">{{ t.res }} ↗</a></sc-if>
+                    <span style="font-size:13px;color:#9498A8">{{ t.hPrev }}</span>
+                  </div>
+                  <sc-if value="{{ showHours }}">
+                    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:10px">
+                      <input type="number" step="0.5" min="0" placeholder="horas" value="{{ t.hours }}" sc-camel-on-change="{{ t.onHours }}" aria-label="Horas realizadas" style="width:82px;border:1px solid #E7E8EF;border-radius:10px;padding:7px 10px;font-size:13px;background:#FAFAFD;color:#191B28">
+                      <input type="url" placeholder="link da evidência" value="{{ t.link }}" sc-camel-on-change="{{ t.onLink }}" aria-label="Link da evidência" style="flex:1;min-width:150px;border:1px solid #E7E8EF;border-radius:10px;padding:7px 10px;font-size:13px;background:#FAFAFD;color:#191B28">
+                    </div>
+                  </sc-if>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+          <sc-if value="{{ showWorkPrompt }}" hint-placeholder-val="{{ true }}">
+            <div style="margin-top:18px;padding:16px 18px;background:#F6F6FD;border-radius:16px;font-size:14px;color:#585C6C;line-height:1.55">
+              <span style="display:block;font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#8A8DE0;margin-bottom:6px">Leve para o trabalho</span>
+              {{ focusWork }}
+            </div>
+          </sc-if>
+        </section>
+
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <section style="background:#fff;border:1px solid #EDEEF4;border-radius:22px;padding:22px 24px;box-shadow:0 1px 2px rgba(25,27,40,.04)">
+            <h2 style="margin:0 0 16px;font-size:15px;font-weight:700;letter-spacing:-.01em">Fases</h2>
+            <sc-for list="{{ phaseBars }}" as="p" hint-placeholder-count="3">
+              <div style="margin-bottom:16px">
+                <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:8px"><span style="font-size:13.5px;color:#4C5162">{{ p.name }}</span><span style="font-size:12.5px;font-weight:600;color:#9498A8">{{ p.count }}</span></div>
+                <div style="height:6px;border-radius:3px;background:#F0F1F6;overflow:hidden"><span style="{{ p.fill }}"></span></div>
+              </div>
+            </sc-for>
+          </section>
+          <section style="background:#fff;border:1px solid #EDEEF4;border-radius:22px;padding:22px 24px;box-shadow:0 1px 2px rgba(25,27,40,.04)">
+            <h2 style="margin:0 0 16px;font-size:15px;font-weight:700;letter-spacing:-.01em">Projetos</h2>
+            <sc-for list="{{ projBars }}" as="p" hint-placeholder-count="5">
+              <div style="margin-bottom:16px">
+                <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:8px"><span style="font-size:13.5px;color:#4C5162">{{ p.repo }}</span><span style="font-size:12.5px;font-weight:600;color:#9498A8">{{ p.count }}</span></div>
+                <div style="height:6px;border-radius:3px;background:#F0F1F6;overflow:hidden"><span style="{{ p.fill }}"></span></div>
+              </div>
+            </sc-for>
+          </section>
+          <section style="background:#fff;border:1px solid #EDEEF4;border-radius:22px;padding:22px 24px;box-shadow:0 1px 2px rgba(25,27,40,.04)">
+            <h2 style="margin:0 0 8px;font-size:15px;font-weight:700;letter-spacing:-.01em">Autoavaliação</h2>
+            <p style="margin:0 0 14px;font-size:13.5px;color:#7A7F90">{{ ckSummary }}</p>
+            <button sc-camel-on-click="{{ goChecklist }}" style="border:1px solid #E7E8EF;background:#FAFAFD;color:#4F4CC4;border-radius:999px;padding:9px 16px;font-size:13.5px;font-weight:600;cursor:pointer" style-hover="background:#F0F0FF">Abrir checklist</button>
+          </section>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ isSemanas }}">
+    <div>
+      <h1 style="margin:8px 0 0;font-size:clamp(26px,3vw,34px);font-weight:700;letter-spacing:-.03em">Sua trilha</h1>
+      <p style="margin:8px 0 26px;color:#6B7080;max-width:540px">Doze semanas, uma de cada vez. Abra a semana, marque o que concluiu e guarde uma nota do que aprendeu.</p>
+      <sc-for list="{{ weeks }}" as="w" hint-placeholder-count="12">
+        <div style="{{ w.cardStyle }}">
+          <button sc-camel-on-click="{{ w.toggle }}" style="width:100%;display:grid;grid-template-columns:46px 1fr auto;gap:16px;align-items:center;background:none;border:0;padding:18px 22px;cursor:pointer;text-align:left">
+            <span style="{{ w.numStyle }}">{{ w.n }}</span>
+            <span>
+              <span style="display:flex;align-items:center;gap:9px;flex-wrap:wrap"><span style="font-size:16px;font-weight:600;letter-spacing:-.01em">{{ w.focus }}</span><sc-if value="{{ w.pill }}"><span style="{{ w.pillStyle }}">{{ w.pill }}</span></sc-if></span>
+              <span style="display:block;font-size:13px;color:#9498A8;margin-top:3px">{{ w.range }}</span>
+            </span>
+            <span style="display:flex;align-items:center;gap:12px">
+              <span style="width:74px;height:6px;border-radius:3px;background:#F0F1F6;overflow:hidden;display:block"><span style="{{ w.fill }}"></span></span>
+              <span style="font-size:12.5px;font-weight:600;color:#9498A8;min-width:26px;text-align:right">{{ w.count }}</span>
+            </span>
+          </button>
+          <sc-if value="{{ w.open }}">
+            <div style="padding:0 22px 22px;border-top:1px solid #F1F2F7">
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin:18px 0 4px">
+                <div style="padding:16px 18px;background:#F6F6FD;border-radius:16px;font-size:14px;color:#585C6C">
+                  <span style="display:block;font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#8A8DE0;margin-bottom:6px">Entrega da semana</span>
+                  {{ w.goal }}
+                </div>
+                <sc-if value="{{ showWorkPrompt }}" hint-placeholder-val="{{ true }}">
+                  <div style="padding:16px 18px;background:#F4F8F6;border-radius:16px;font-size:14px;color:#585C6C">
+                    <span style="display:block;font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#5FA98D;margin-bottom:6px">Leve para o trabalho</span>
+                    {{ w.work }}
+                  </div>
+                </sc-if>
+              </div>
+              <sc-for list="{{ w.tasks }}" as="t" hint-placeholder-count="2">
+                <div style="display:grid;grid-template-columns:24px 1fr;gap:14px;padding:16px 0;border-top:1px solid #F1F2F7;align-items:start">
+                  <button sc-camel-on-click="{{ t.cycle }}" title="{{ t.statusLabel }}" aria-label="{{ t.statusLabel }}" style="{{ t.dot }}"><sc-if value="{{ t.done }}"><span style="font-size:12px;font-weight:700;color:#fff;line-height:1">✓</span></sc-if></button>
+                  <div>
+                    <div style="{{ t.titleStyle }}">{{ t.title }}</div>
+                    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:9px">
+                      <span style="{{ t.tagStyle }}">{{ t.type }}</span>
+                      <sc-if value="{{ t.hasUrl }}"><a href="{{ t.url }}" target="_blank" rel="noopener" style="font-size:13px;font-weight:500">{{ t.res }} ↗</a></sc-if>
+                      <span style="font-size:13px;color:#9498A8">{{ t.hPrev }}</span>
+                    </div>
+                    <sc-if value="{{ showHours }}">
+                      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:10px">
+                        <input type="number" step="0.5" min="0" placeholder="horas" value="{{ t.hours }}" sc-camel-on-change="{{ t.onHours }}" aria-label="Horas realizadas" style="width:82px;border:1px solid #E7E8EF;border-radius:10px;padding:7px 10px;font-size:13px;background:#FAFAFD;color:#191B28">
+                        <input type="url" placeholder="link da evidência" value="{{ t.link }}" sc-camel-on-change="{{ t.onLink }}" aria-label="Link da evidência" style="flex:1;min-width:150px;border:1px solid #E7E8EF;border-radius:10px;padding:7px 10px;font-size:13px;background:#FAFAFD;color:#191B28">
+                      </div>
+                    </sc-if>
+                  </div>
+                </div>
+              </sc-for>
+              <textarea placeholder="O que aprendeu, o que travou, o que faria diferente" value="{{ w.note }}" sc-camel-on-change="{{ w.onNote }}" style="width:100%;min-height:74px;margin-top:16px;resize:vertical;border:1px solid #E7E8EF;border-radius:16px;padding:13px 15px;font-size:14px;background:#FAFAFD;color:#191B28;line-height:1.55"></textarea>
+            </div>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ isProjetos }}">
+    <div>
+      <h1 style="margin:8px 0 0;font-size:clamp(26px,3vw,34px);font-weight:700;letter-spacing:-.03em">Projetos</h1>
+      <p style="margin:8px 0 26px;color:#6B7080;max-width:540px">Cinco repositórios públicos. É isso que fica quando as 12 semanas acabam.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:14px;align-items:start">
+        <sc-for list="{{ projects }}" as="p" hint-placeholder-count="5">
+          <section style="background:#fff;border:1px solid #EDEEF4;border-radius:22px;padding:24px 26px;box-shadow:0 1px 2px rgba(25,27,40,.04)">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+              <h2 style="margin:0;font-size:16.5px;font-weight:700;letter-spacing:-.02em">{{ p.repo }}</h2>
+              <span style="{{ p.badge }}">{{ p.count }}</span>
+            </div>
+            <p style="margin:8px 0 16px;font-size:14px;color:#6B7080">{{ p.proves }}</p>
+            <div style="height:6px;border-radius:3px;background:#F0F1F6;overflow:hidden"><span style="{{ p.fill }}"></span></div>
+            <div style="margin-top:6px">
+              <sc-for list="{{ p.items }}" as="i" hint-placeholder-count="4">
+                <div style="display:grid;grid-template-columns:20px 1fr;gap:12px;padding:13px 0;border-top:1px solid #F1F2F7;align-items:start">
+                  <input type="checkbox" checked="{{ i.done }}" sc-camel-on-change="{{ i.toggle }}" aria-label="{{ i.t }}" style="width:17px;height:17px;margin-top:3px;accent-color:#5B5BD6;cursor:pointer">
+                  <div>
+                    <div style="{{ i.labelStyle }}">{{ i.t }}</div>
+                    <div style="font-size:12.5px;color:#A0A4B2;margin-top:2px">semana {{ i.w }}</div>
+                    <sc-if value="{{ showHours }}">
+                      <input type="url" placeholder="link" value="{{ i.link }}" sc-camel-on-change="{{ i.onLink }}" aria-label="Link da evidência" style="width:100%;margin-top:8px;border:1px solid #E7E8EF;border-radius:10px;padding:6px 10px;font-size:12.5px;background:#FAFAFD;color:#191B28">
+                    </sc-if>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+          </section>
+        </sc-for>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ isRecursos }}">
+    <div>
+      <h1 style="margin:8px 0 0;font-size:clamp(26px,3vw,34px);font-weight:700;letter-spacing:-.03em">Recursos</h1>
+      <p style="margin:8px 0 26px;color:#6B7080;max-width:540px">Dezessete materiais gratuitos, na ordem em que entram na trilha.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:14px;align-items:start">
+        <sc-for list="{{ resGroups }}" as="g" hint-placeholder-count="6">
+          <section style="background:#fff;border:1px solid #EDEEF4;border-radius:22px;padding:22px 24px;box-shadow:0 1px 2px rgba(25,27,40,.04)">
+            <h2 style="margin:0;font-size:15px;font-weight:700;letter-spacing:-.01em">{{ g.skill }}</h2>
+            <sc-for list="{{ g.items }}" as="r" hint-placeholder-count="2">
+              <div style="display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:14px 0;border-top:1px solid #F1F2F7;margin-top:14px">
+                <div>
+                  <a href="{{ r.url }}" target="_blank" rel="noopener" style="font-size:14.5px;font-weight:600">{{ r.name }}</a>
+                  <div style="font-size:12.5px;color:#A0A4B2;margin-top:3px">{{ r.when }}</div>
+                </div>
+                <sc-raw-select value="{{ r.status }}" sc-camel-on-change="{{ r.onChange }}" aria-label="Status do recurso" style="{{ r.style }}">
+                  <option>Não iniciado</option>
+                  <option>Em uso</option>
+                  <option>Concluído</option>
+                </sc-raw-select>
+              </div>
+            </sc-for>
+          </section>
+        </sc-for>
+      </div>
+      <sc-if value="{{ showReserve }}" hint-placeholder-val="{{ true }}">
+        <section style="margin-top:30px">
+          <h2 style="margin:0;font-size:17px;font-weight:700;letter-spacing:-.02em">Reserva</h2>
+          <p style="margin:6px 0 14px;font-size:14px;color:#7A7F90">Fora das 12 semanas. Use só quando um item específico pedir.</p>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:12px">
+            <sc-for list="{{ reserve }}" as="r" hint-placeholder-count="6">
+              <div style="background:#fff;border:1px solid #EDEEF4;border-radius:18px;padding:16px 18px">
+                <a href="{{ r.url }}" target="_blank" rel="noopener" style="font-size:14px;font-weight:600">{{ r.name }}</a>
+                <div style="font-size:13px;color:#8C90A0;margin-top:5px">{{ r.why }}</div>
+              </div>
+            </sc-for>
+          </div>
+        </section>
+      </sc-if>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ isChecklist }}">
+    <div>
+      <h1 style="margin:8px 0 0;font-size:clamp(26px,3vw,34px);font-weight:700;letter-spacing:-.03em">Autoavaliação</h1>
+      <p style="margin:8px 0 22px;color:#6B7080;max-width:560px">Responda Sim só para o que você consegue fazer hoje, sem preparação. Refaça nas semanas 0, 4, 8 e 12.</p>
+
+      <section style="background:#fff;border:1px solid #EDEEF4;border-radius:22px;padding:22px 26px;box-shadow:0 1px 2px rgba(25,27,40,.04);display:flex;align-items:center;gap:26px;flex-wrap:wrap">
+        <div style="display:flex;align-items:center;gap:16px">
+          <div style="{{ ckRingStyle }}">
+            <div style="position:absolute;inset:8px;border-radius:50%;background:#fff;display:grid;place-items:center">
+              <span style="font-size:19px;font-weight:700;letter-spacing:-.02em">{{ ckPct }}</span>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:15px;font-weight:600">{{ ckColLabel }}</div>
+            <div style="font-size:13.5px;color:#8C90A0">meta de 80% na semana 12</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:4px;flex-wrap:wrap;margin-left:auto;background:#F4F5F9;padding:4px;border-radius:999px">
+          <sc-for list="{{ ckTabs }}" as="tb" hint-placeholder-count="4">
+            <button sc-camel-on-click="{{ tb.go }}" style="{{ tb.style }}">{{ tb.label }}</button>
+          </sc-for>
+        </div>
+      </section>
+
+      <div style="margin-top:14px;display:flex;flex-direction:column;gap:10px">
+        <sc-for list="{{ ckItems }}" as="it" hint-placeholder-count="10">
+          <div style="background:#fff;border:1px solid #EDEEF4;border-radius:18px;padding:16px 20px;display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap">
+            <span style="font-size:14.5px;max-width:560px">{{ it.item }}</span>
+            <div style="display:flex;gap:4px;background:#F4F5F9;padding:4px;border-radius:999px">
+              <sc-for list="{{ it.opts }}" as="o" hint-placeholder-count="3">
+                <button sc-camel-on-click="{{ o.pick }}" style="{{ o.style }}">{{ o.label }}</button>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="display:flex;gap:20px;flex-wrap:wrap;margin-top:18px;padding:0 4px">
+        <sc-for list="{{ ckHistory }}" as="h" hint-placeholder-count="4">
+          <span style="font-size:13px;color:#8C90A0">{{ h.label }}: <b style="color:#191B28;font-weight:600">{{ h.pct }}</b></span>
+        </sc-for>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ isAjustes }}">
+    <div style="max-width:620px">
+      <h1 style="margin:8px 0 0;font-size:clamp(26px,3vw,34px);font-weight:700;letter-spacing:-.03em">Ajustes</h1>
+      <p style="margin:8px 0 24px;color:#6B7080">Seu progresso fica salvo neste navegador. Exporte um backup antes de trocar de máquina.</p>
+      <section style="background:#fff;border:1px solid #EDEEF4;border-radius:22px;padding:24px 26px;display:grid;gap:20px;box-shadow:0 1px 2px rgba(25,27,40,.04)">
+        <label style="display:grid;gap:8px;font-size:14px;font-weight:600">Data de início (segunda-feira)
+          <input type="date" value="{{ startDate }}" sc-camel-on-change="{{ onStart }}" style="border:1px solid #E7E8EF;border-radius:12px;padding:10px 12px;font-size:14px;background:#FAFAFD;color:#191B28;font-weight:400">
+        </label>
+        <label style="display:grid;gap:8px;font-size:14px;font-weight:600">Meta de horas por semana
+          <input type="number" min="1" max="40" step="0.5" value="{{ goal }}" sc-camel-on-change="{{ onGoal }}" style="border:1px solid #E7E8EF;border-radius:12px;padding:10px 12px;font-size:14px;background:#FAFAFD;color:#191B28;font-weight:400">
+        </label>
+        <div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <button sc-camel-on-click="{{ onExport }}" style="border:0;background:#5B5BD6;color:#fff;border-radius:999px;padding:10px 18px;font-size:14px;font-weight:600;cursor:pointer" style-hover="background:#4F4CC4">Copiar backup</button>
+            <button sc-camel-on-click="{{ onImport }}" style="border:1px solid #E7E8EF;background:#FAFAFD;color:#191B28;border-radius:999px;padding:10px 18px;font-size:14px;font-weight:600;cursor:pointer" style-hover="background:#F1F2F7">Restaurar do texto</button>
+            <button sc-camel-on-click="{{ onReset }}" style="border:1px solid #F3DEDB;background:#FDF7F6;color:#B4483A;border-radius:999px;padding:10px 18px;font-size:14px;font-weight:600;cursor:pointer" style-hover="background:#FBEEEC">Apagar progresso</button>
+          </div>
+          <textarea placeholder="Cole aqui um backup para restaurar" value="{{ jsonText }}" sc-camel-on-change="{{ onJson }}" style="width:100%;min-height:110px;margin-top:12px;resize:vertical;border:1px solid #E7E8EF;border-radius:14px;padding:12px 14px;font-family:ui-monospace,monospace;font-size:12px;background:#FAFAFD;color:#191B28"></textarea>
+        </div>
+      </section>
+      <p style="margin:16px 0 0;font-size:13.5px;color:#8C90A0;line-height:1.6">Para publicar: suba o arquivo como <b style="font-weight:600">index.html</b> num repositório e ative o GitHub Pages em Settings › Pages.</p>
+      <p style="margin:6px 0 0;font-size:12.5px;color:#A0A4B2">{{ savedAt }}</p>
+    </div>
+  </sc-if>
+
+</main>
+
+<sc-if value="{{ toast }}">
+  <div role="status" aria-live="polite" style="position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#191B28;color:#fff;padding:11px 20px;border-radius:999px;font-size:14px;font-weight:500;z-index:50;box-shadow:0 8px 24px rgba(25,27,40,.18)">{{ toast }}</div>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;showHours&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Conteúdo&quot;},&quot;showWorkPrompt&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Conteúdo&quot;},&quot;showReserve&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Conteúdo&quot;}}">
+class Component extends DCLogic {
+  KEY = "trilha-tech-pm-v1";
+  DAY = 86400000;
+  STATUS = ["Não iniciado", "Em andamento", "Concluído"];
+  PLAN = {
+    phases: [
+      {n:1, name:"Fase 1 · Fundamentos", weeks:[1,2,3,4]},
+      {n:2, name:"Fase 2 · APIs, IA e cloud", weeks:[5,6,7,8]},
+      {n:3, name:"Fase 3 · Construir e publicar", weeks:[9,10,11,12]},
+    ],
+    weeks: [
+      {n:1, phase:1, focus:"Git, GitHub e pipeline", goal:"Repositório system-design-notebook criado e README de perfil no GitHub.", work:"Abra o repositório do produto que você gerencia e leia o último PR mesclado. Anote o que não entendeu.", tasks:[
+        {id:"t1", type:"estudo", title:"GitHub Skills: Introduction to GitHub, Review pull requests e Hello GitHub Actions", res:"GitHub Skills", url:"https://skills.github.com", h:3},
+        {id:"t2", type:"artefato", title:"Criar o repo system-design-notebook e o README de perfil no GitHub", res:"GitHub", url:"https://github.com", h:1.5},
+      ]},
+      {n:2, phase:1, focus:"System design I", goal:"3 diagramas Mermaid com um parágrafo de resumo por módulo.", work:"Desenhe em 15 minutos a arquitetura do produto que você gerencia hoje: componentes, fluxo de dados, onde está o risco. Mostre a um engenheiro e peça para corrigir.", tasks:[
+        {id:"t3", type:"estudo", title:"freeCodeCamp, Learn Software System Design (parte 1): bancos, escala, load balancing, SPOF", res:"freeCodeCamp", url:"https://www.freecodecamp.org/news/learn-software-system-design/", h:2},
+        {id:"t4", type:"artefato", title:"Desenhar 3 diagramas Mermaid e resumir cada módulo em um parágrafo", res:"Mermaid", url:"https://mermaid.js.org", h:2},
+      ]},
+      {n:3, phase:1, focus:"System design II e APIs", goal:"Design doc #1: encurtador de URL.", work:"Leia dois PRs abertos do time. Para cada um, escreva em uma frase o que muda e o que pode quebrar. Peça a um engenheiro para revisar o design doc #1.", tasks:[
+        {id:"t5", type:"estudo", title:"freeCodeCamp (parte 2): API design, REST, GraphQL, autenticação e segurança", res:"freeCodeCamp", url:"https://www.freecodecamp.org/news/learn-software-system-design/", h:2},
+        {id:"t6", type:"artefato", title:"Design doc #1: encurtador de URL (C4 nível 1 e 2, ADR, estimativa de capacidade)", res:"C4 Model", url:"https://c4model.com", h:3},
+      ]},
+      {n:4, phase:1, focus:"SQL e escrita técnica", goal:"Design doc #2: sistema de notificações.", work:"Pegue uma pergunta que você faria ao time de dados esta semana e responda você mesmo com SQL. Peça revisão do design doc #2.", tasks:[
+        {id:"t7", type:"estudo", title:"SQLBolt, todas as lições", res:"SQLBolt", url:"https://sqlbolt.com", h:2.5},
+        {id:"t8", type:"estudo", title:"Google Technical Writing One", res:"Google Tech Writing", url:"https://developers.google.com/tech-writing", h:2.5},
+        {id:"t9", type:"artefato", title:"Design doc #2: sistema de notificações (filas, retries, canais)", res:"ADR", url:"https://adr.github.io", h:2},
+      ]},
+      {n:5, phase:2, focus:"Contratos de API", goal:"Contrato OpenAPI do agente de triagem de tickets (P2).", work:"Escolha um endpoint real do produto e compare com o que aprendeu: versionamento, erros, paginação, auth. O que falta?", tasks:[
+        {id:"t10", type:"estudo", title:"OpenAPI Specification com o Swagger Editor", res:"Swagger Editor", url:"https://editor.swagger.io", h:2},
+        {id:"t11", type:"artefato", title:"Escrever o contrato OpenAPI do agente de triagem de tickets", res:"Swagger Editor", url:"https://editor.swagger.io", h:3},
+      ]},
+      {n:6, phase:2, focus:"Produto de IA I", goal:"PRD do agente de triagem com métricas e plano de evals (P2).", work:"Liste as features de IA ou automações do produto e responda: como sabemos que funcionam? Que métrica diria que falharam?", tasks:[
+        {id:"t12", type:"estudo", title:"HelloPM, masterclasses de LLMs, RAG e evals", res:"HelloPM", url:"https://hellopm.co/free/", h:4},
+        {id:"t13", type:"leitura", title:"Your AI Product Needs Evals (Hamel Husain)", res:"hamel.dev", url:"https://hamel.dev/blog/posts/evals/", h:0.5},
+        {id:"t14", type:"artefato", title:"PRD do agente de triagem: problema, métricas de sucesso, não-objetivos e plano de evals", res:"Design Docs at Google", url:"https://www.industrialempathy.com/posts/design-docs-at-google/", h:2.5},
+      ]},
+      {n:7, phase:2, focus:"Produto de IA II", goal:"Protótipo do agente de triagem rodando local (P4).", work:"Mostre o protótipo a um engenheiro ou ao time de suporte e pergunte o que quebraria com tickets reais.", tasks:[
+        {id:"t15", type:"estudo", title:"Microsoft Generative AI for Beginners, lições de RAG e agentes", res:"GenAI for Beginners", url:"https://github.com/microsoft/generative-ai-for-beginners", h:3},
+        {id:"t16", type:"artefato", title:"Protótipo: classificador de tickets com LLM + RAG sobre uma base de FAQ", res:"GenAI for Beginners", url:"https://github.com/microsoft/generative-ai-for-beginners", h:4},
+      ]},
+      {n:8, phase:2, focus:"Cloud e segurança", goal:"Tech spec do agente de triagem com arquitetura, custo e riscos (P2).", work:"Pergunte ao engenheiro responsável quanto custa a infra do produto por mês e o que dobraria a conta. Peça revisão da tech spec.", tasks:[
+        {id:"t17", type:"estudo", title:"AWS Skill Builder, Cloud Practitioner Essentials (EC2, S3, RDS, Lambda, SQS, IAM)", res:"AWS Skill Builder", url:"https://skillbuilder.aws", h:4},
+        {id:"t18", type:"leitura", title:"OWASP Top 10: nomear os 10 riscos e um exemplo de feature que toca em cada", res:"OWASP", url:"https://owasp.org/www-project-top-ten/", h:1},
+        {id:"t19", type:"artefato", title:"Tech spec do agente de triagem: arquitetura, estimativa de custo, risk register (LGPD, alucinação, latência)", res:"ADR", url:"https://adr.github.io", h:2.5},
+      ]},
+      {n:9, phase:3, focus:"Shipping", goal:"portfolio-api no ar com Docker, testes e CI verde (P3).", work:"Acompanhe um deploy real do time do início ao fim. Anote cada etapa e quanto tempo levou.", tasks:[
+        {id:"t20", type:"estudo", title:"Docker, Get Started (tutorial oficial)", res:"Docker", url:"https://docs.docker.com/get-started/", h:2},
+        {id:"t21", type:"artefato", title:"portfolio-api: FastAPI + testes + Dockerfile + GitHub Actions + deploy em free tier + README com ADRs", res:"FastAPI", url:"https://fastapi.tiangolo.com", h:5},
+      ]},
+      {n:10, phase:3, focus:"Evals de IA", goal:"Agente de triagem medido: acurácia, custo e latência por versão (P4).", work:"Proponha ao time um eval mínimo para uma feature ou automação existente: 20 casos, uma métrica, um threshold.", tasks:[
+        {id:"t22", type:"estudo", title:"promptfoo: setup do primeiro eval", res:"promptfoo", url:"https://www.promptfoo.dev", h:1.5},
+        {id:"t23", type:"artefato", title:"Eval harness (dataset rotulado, 2 a 3 modelos, 2 a 3 prompts) + painel de custo, latência e acurácia + guardrails de PII", res:"promptfoo", url:"https://www.promptfoo.dev", h:5},
+      ]},
+      {n:11, phase:3, focus:"Dados", goal:"product-analytics-olist com queries, dashboard e PM memo (P5).", work:"Use uma das queries do P5 como modelo para uma pergunta real do produto e apresente o resultado numa reunião.", tasks:[
+        {id:"t24", type:"estudo", title:"Mode SQL Tutorial, nível Intermediate (window functions)", res:"Mode SQL", url:"https://mode.com/sql-tutorial", h:2},
+        {id:"t25", type:"artefato", title:"8 queries de PM sobre o dataset Olist (funil, atraso × review, cohort) + dashboard + PM memo de 1 página", res:"Dataset Olist", url:"https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce", h:5},
+      ]},
+      {n:12, phase:3, focus:"Consolidação", goal:"4 repos fixados, site atualizado, primeiro post técnico publicado.", work:"Use as decisões dos projetos como cases numa conversa com seu gestor ou numa entrevista. Refaça o checklist.", tasks:[
+        {id:"t26", type:"artefato", title:"Fixar os 4 repos, adicionar 'Technical work' ao site e publicar o primeiro post técnico no LinkedIn", res:"eraldoneto.com", url:"https://eraldoneto.com", h:3},
+        {id:"t27", type:"artefato", title:"Design doc #3: rate limiter (algoritmos, onde fica, trade-offs)", res:"System Design Primer", url:"https://github.com/donnemartin/system-design-primer", h:2},
+        {id:"t28", type:"prática", title:"Refazer a autoavaliação Tech PM (revisão da semana 12)", res:"Autoavaliação", url:"", h:0.5},
+      ]},
+    ],
+    projects: [
+      {id:"P1", repo:"system-design-notebook", proves:"Você lê e desenha sistemas.", items:[
+        {id:"d1", t:"Repositório criado com README explicando o propósito", w:1},
+        {id:"d2", t:"Notas por módulo com diagramas Mermaid", w:2},
+        {id:"d3", t:"Design doc #1: encurtador de URL", w:3},
+        {id:"d4", t:"Design doc #2: sistema de notificações", w:4},
+        {id:"d5", t:"Design doc #3: rate limiter", w:12},
+      ]},
+      {id:"P2", repo:"tech-pm-spec-kit", proves:"Você escreve o artefato que engenheiro confia.", items:[
+        {id:"d6", t:"Contrato OpenAPI do agente de triagem", w:5},
+        {id:"d7", t:"PRD com métricas e plano de evals", w:6},
+        {id:"d8", t:"Tech spec com arquitetura, custo e risk register", w:8},
+        {id:"d9", t:"Templates reutilizáveis: PRD, tech spec, ADR, eval plan", w:8},
+      ]},
+      {id:"P3", repo:"portfolio-api", proves:"Você entende build, test e deploy de ponta a ponta.", items:[
+        {id:"d10", t:"API FastAPI com docs OpenAPI e testes", w:9},
+        {id:"d11", t:"Dockerfile e CI verde no GitHub Actions", w:9},
+        {id:"d12", t:"Deploy no ar e README com ADRs", w:9},
+      ]},
+      {id:"P4", repo:"support-triage-agent", proves:"Você constrói e mede produto de IA. Projeto estrela.", items:[
+        {id:"d13", t:"Protótipo: classificador + RAG rodando local", w:7},
+        {id:"d14", t:"Eval harness com dataset rotulado", w:10},
+        {id:"d15", t:"Painel de custo, latência e acurácia + guardrails de PII", w:10},
+      ]},
+      {id:"P5", repo:"product-analytics-olist", proves:"Você tira insight do dado sem pedir a ninguém.", items:[
+        {id:"d16", t:"8 queries respondendo perguntas de PM", w:11},
+        {id:"d17", t:"Dashboard (Metabase ou Streamlit)", w:11},
+        {id:"d18", t:"PM memo com 3 decisões e trade-offs", w:11},
+      ]},
+    ],
+    resources: [
+      {id:"r1", skill:"Engenharia e entrega", name:"GitHub Skills", url:"https://skills.github.com", when:"Semana 1"},
+      {id:"r13", skill:"Engenharia e entrega", name:"Docker: Get Started", url:"https://docs.docker.com/get-started/", when:"Semana 9"},
+      {id:"r14", skill:"Engenharia e entrega", name:"FastAPI (documentação)", url:"https://fastapi.tiangolo.com", when:"Semana 9"},
+      {id:"r2", skill:"System design", name:"freeCodeCamp: Learn Software System Design", url:"https://www.freecodecamp.org/news/learn-software-system-design/", when:"Semanas 2 e 3"},
+      {id:"r3", skill:"System design", name:"System Design Primer (referência)", url:"https://github.com/donnemartin/system-design-primer", when:"Semanas 2, 3 e 12"},
+      {id:"r4", skill:"System design", name:"C4 Model + ADR", url:"https://c4model.com", when:"Semanas 3 e 4"},
+      {id:"r5", skill:"Dados e SQL", name:"SQLBolt", url:"https://sqlbolt.com", when:"Semana 4"},
+      {id:"r16", skill:"Dados e SQL", name:"Mode SQL Tutorial", url:"https://mode.com/sql-tutorial", when:"Semana 11"},
+      {id:"r17", skill:"Dados e SQL", name:"Dataset Olist (Kaggle)", url:"https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce", when:"Semana 11"},
+      {id:"r6", skill:"Escrita técnica", name:"Google Technical Writing One", url:"https://developers.google.com/tech-writing", when:"Semana 4"},
+      {id:"r7", skill:"APIs", name:"OpenAPI + Swagger Editor", url:"https://editor.swagger.io", when:"Semana 5"},
+      {id:"r8", skill:"Produto de IA", name:"HelloPM: Free AI Product Management Course", url:"https://hellopm.co/free/", when:"Semana 6"},
+      {id:"r9", skill:"Produto de IA", name:"Hamel Husain: Your AI Product Needs Evals", url:"https://hamel.dev/blog/posts/evals/", when:"Semana 6"},
+      {id:"r10", skill:"Produto de IA", name:"Microsoft: Generative AI for Beginners", url:"https://github.com/microsoft/generative-ai-for-beginners", when:"Semana 7"},
+      {id:"r15", skill:"Produto de IA", name:"promptfoo", url:"https://www.promptfoo.dev", when:"Semana 10"},
+      {id:"r11", skill:"Cloud", name:"AWS Skill Builder: Cloud Practitioner Essentials", url:"https://skillbuilder.aws", when:"Semana 8"},
+      {id:"r12", skill:"Segurança", name:"OWASP Top 10", url:"https://owasp.org/www-project-top-ten/", when:"Semana 8"},
+    ],
+    reserve: [
+      {name:"ByteByteGo (YouTube)", url:"https://www.youtube.com/@ByteByteGo", why:"manutenção semanal de system design em vídeos de 10 min"},
+      {name:"Anthropic courses (GitHub)", url:"https://github.com/anthropics/courses", why:"se quiser ir mais fundo em prompt engineering e tool use"},
+      {name:"Hugging Face Agents Course", url:"https://huggingface.co/learn/agents-course", why:"se o P4 pedir agentes com ferramentas"},
+      {name:"Postman Academy", url:"https://academy.postman.com", why:"se sentir falta de prática em testar APIs"},
+      {name:"AWS Well-Architected", url:"https://aws.amazon.com/architecture/well-architected/", why:"checklist para revisar a tech spec da semana 8"},
+      {name:"Metabase", url:"https://www.metabase.com", why:"dashboard do P5 em 10 minutos via Docker"},
+    ],
+    checklist: [
+      "Desenho em 10 minutos a arquitetura do produto que gerencio",
+      "Leio um PR e entendo o que muda e o que pode quebrar",
+      "Escrevo tech spec com alternativas, trade-offs e não-objetivos",
+      "Sei o custo de infra do meu produto e o que o dobra",
+      "Rodo SQL para responder minha própria pergunta antes de pedir ao time de dados",
+      "Explico por que uma feature de IA falha e como medir isso (evals, abstenção, custo/latência)",
+      "Leio um contrato OpenAPI e aponto o que falta (versionamento, erros, paginação, auth)",
+      "Nomeio os 3 maiores riscos técnicos do roadmap e o plano de mitigação de cada um",
+      "Reconheço quando uma feature toca no OWASP Top 10 ou em base legal da LGPD",
+      "Sei as 4 métricas DORA do meu time e o que faria para melhorar a pior delas",
+    ],
+    reviews: ["Semana 0", "Semana 4", "Semana 8", "Semana 12"],
+  };
+
+  constructor(p){
+    super(p);
+    this.state = {view:"painel", openWeek:null, toast:"", jsonText:"", ckCol:null, d:this.load()};
+  }
+  blank(){ return {startDate:"2026-09-07", goal:6, tasks:{}, deliverables:{}, resources:{}, checklist:{}, notes:{}, savedAt:null}; }
+  load(){
+    try{ const raw = localStorage.getItem(this.KEY); return Object.assign(this.blank(), raw ? JSON.parse(raw) : null); }
+    catch(e){ return this.blank(); }
+  }
+  persist(d){
+    const nd = d || this.state.d;
+    nd.savedAt = new Date().toISOString();
+    try{ localStorage.setItem(this.KEY, JSON.stringify(nd)); }catch(e){}
+    this.setState({d: Object.assign({}, nd)});
+  }
+  toast(msg){
+    this.setState({toast: msg});
+    clearTimeout(this._tt);
+    this._tt = setTimeout(() => this.setState({toast: ""}), 2400);
+  }
+  go(view, week){
+    const s = {view};
+    if(week) s.openWeek = week;
+    this.setState(s);
+    window.scrollTo(0, 0);
+  }
+
+  sd(){ const p = String(this.state.d.startDate || "2026-09-07").split("-").map(Number); return new Date(p[0], p[1]-1, p[2]); }
+  ws(n){ return new Date(this.sd().getTime() + (n-1)*7*this.DAY); }
+  we(n){ return new Date(this.ws(n).getTime() + 6*this.DAY); }
+  todayD(){ const t = new Date(); return new Date(t.getFullYear(), t.getMonth(), t.getDate()); }
+  cw(){ const diff = Math.floor((this.todayD() - this.sd())/this.DAY); if(diff < 0) return 0; return Math.min(13, Math.floor(diff/7)+1); }
+  fmtDate(d, y){ const o = {day:"2-digit", month:"short"}; if(y) o.year = "numeric"; return d.toLocaleDateString("pt-BR", o).replace(/\./g, ""); }
+  range(n){ return this.fmtDate(this.ws(n)) + " – " + this.fmtDate(this.we(n)); }
+  fmtH(h){ return (Math.round(h*10)/10).toString().replace(".", ",") + " h"; }
+  pct(x){ return Math.round(x*100) + "%"; }
+
+  tk(id){ return this.state.d.tasks[id] || {status:0, hours:0, link:""}; }
+  setTask(id, patch){ const d = this.state.d; d.tasks[id] = Object.assign({}, this.tk(id), patch); this.persist(d); }
+  dl(id){ return this.state.d.deliverables[id] || {done:false, link:""}; }
+  setDeliv(id, patch){ const d = this.state.d; d.deliverables[id] = Object.assign({}, this.dl(id), patch); this.persist(d); }
+
+  weekStats(w){
+    let done=0, planned=0, logged=0;
+    w.tasks.forEach(t => { const s = this.tk(t.id); if(s.status===2) done++; planned += t.h; logged += Number(s.hours)||0; });
+    const total = w.tasks.length;
+    return {done, total, planned, logged, pct: total ? done/total : 0};
+  }
+  allStats(){
+    let done=0, total=0, planned=0, logged=0;
+    this.PLAN.weeks.forEach(w => { const s = this.weekStats(w); done+=s.done; total+=s.total; planned+=s.planned; logged+=s.logged; });
+    return {done, total, planned, logged, pct: total ? done/total : 0};
+  }
+  projStats(p){ const done = p.items.filter(i => this.dl(i.id).done).length; return {done, total:p.items.length, pct: p.items.length ? done/p.items.length : 0}; }
+  weekState(n){
+    const s = this.weekStats(this.PLAN.weeks[n-1]);
+    if(s.pct === 1) return "done";
+    if(n === this.cw()) return "now";
+    if(n < this.cw()) return "late";
+    return "";
+  }
+  ckScore(col){
+    let s = 0;
+    this.PLAN.checklist.forEach((_, i) => { const v = (this.state.d.checklist[i]||{})[col]; if(v==="Sim") s+=1; else if(v==="Parcial") s+=0.5; });
+    return s / this.PLAN.checklist.length;
+  }
+
+  taskVM(t){
+    const s = this.tk(t.id), done = s.status===2;
+    const base = "width:24px;height:24px;border-radius:50%;padding:0;margin-top:1px;cursor:pointer;display:grid;place-items:center;transition:transform .12s;";
+    const dot = done ? base+"border:0;background:#5B5BD6"
+      : s.status===1 ? base+"border:2px solid #5B5BD6;background:linear-gradient(90deg,#5B5BD6 50%,#fff 50%)"
+      : base+"border:2px solid #DCDEE8;background:#fff";
+    const tagBase = "font-size:11.5px;font-weight:600;letter-spacing:.02em;padding:3px 10px;border-radius:999px;";
+    const tag = t.type==="artefato" ? tagBase+"background:#EFEFFC;color:#5251C9"
+      : t.type==="prática" ? tagBase+"background:#E8F5F0;color:#12886A"
+      : t.type==="leitura" ? tagBase+"background:#FCF2E5;color:#B57A28"
+      : tagBase+"background:#F1F2F7;color:#6B7080";
+    return {
+      title: t.title, type: t.type, res: t.res, url: t.url, hasUrl: !!t.url,
+      hPrev: this.fmtH(t.h), hours: s.hours || "", link: s.link || "",
+      done, statusLabel: this.STATUS[s.status], dot, tagStyle: tag,
+      titleStyle: done ? "font-size:15px;font-weight:500;line-height:1.5;color:#A4A8B6;text-decoration:line-through" : "font-size:15px;font-weight:500;line-height:1.5;color:#191B28",
+      cycle: () => this.setTask(t.id, {status: (this.tk(t.id).status+1)%3}),
+      onHours: e => this.setTask(t.id, {hours: Number(e.target.value)||0}),
+      onLink: e => this.setTask(t.id, {link: e.target.value}),
+    };
+  }
+
+  ring(p, size, track, fill, bg){
+    const deg = Math.round(p*360);
+    return "position:relative;width:"+size+"px;height:"+size+"px;border-radius:50%;flex:0 0 auto;background:conic-gradient("+fill+" "+deg+"deg, "+track+" "+deg+"deg)";
+  }
+
+  renderVals(){
+    const P = this.PLAN, d = this.state.d, v = this.state.view, cw = this.cw(), all = this.allStats();
+    const projDone = P.projects.reduce((a,p) => a + this.projStats(p).done, 0);
+    const projTotal = P.projects.reduce((a,p) => a + p.items.length, 0);
+    const weeksDone = P.weeks.filter(w => this.weekStats(w).pct === 1).length;
+
+    const navBase = "border:0;padding:9px 15px;border-radius:999px;cursor:pointer;font-size:14px;font-weight:600;";
+    const nav = [["painel","Painel"],["semanas","Trilha"],["projetos","Projetos"],["recursos","Recursos"],["checklist","Autoavaliação"]]
+      .map(x => ({
+        label: x[1],
+        style: v===x[0] ? navBase+"background:#EFEFFC;color:#4F4CC4" : navBase+"background:none;color:#6B7080",
+        go: () => this.go(x[0]),
+      }));
+
+    let eyebrow, title, sub;
+    if(cw === 0){ eyebrow = "Começa em " + this.fmtDate(this.sd(), true); title = "Tudo pronto para começar"; sub = "Reserve os blocos de estudo na agenda e responda a autoavaliação da semana 0 — é ela que mostra o quanto você evoluiu no fim."; }
+    else if(cw === 13){ eyebrow = "Trilha concluída"; title = "12 semanas percorridas"; sub = "Refaça a autoavaliação e compare com a semana 0."; }
+    else { const w = P.weeks[cw-1]; eyebrow = "Semana " + cw + " de 12 · " + this.range(cw); title = w.focus; sub = w.goal; }
+
+    const fw = (cw >= 1 && cw <= 12) ? cw : 1;
+    const fwk = P.weeks[fw-1];
+
+    const chipBase = "width:100%;aspect-ratio:1;min-height:34px;border-radius:12px;border:0;cursor:pointer;font-size:13px;font-weight:600;display:grid;place-items:center;padding:0;";
+    const chips = P.weeks.map(w => {
+      const s = this.weekStats(w), st = this.weekState(w.n);
+      const style = st==="done" ? chipBase+"background:#fff;color:#4F4CC4"
+        : st==="now" ? chipBase+"background:rgba(255,255,255,.3);color:#fff;box-shadow:inset 0 0 0 2px #fff"
+        : st==="late" ? chipBase+"background:rgba(255,255,255,.16);color:rgba(255,255,255,.9)"
+        : chipBase+"background:rgba(255,255,255,.1);color:rgba(255,255,255,.6)";
+      return {n: w.n, style, title: "Semana " + w.n + ": " + w.focus + " — " + s.done + " de " + s.total, go: () => this.go("semanas", w.n)};
+    });
+
+    const barFill = (p, done) => "display:block;height:100%;border-radius:3px;background:" + (done ? "#15A47A" : "#5B5BD6") + ";width:" + this.pct(p);
+    const badge = (done) => "font-size:12.5px;font-weight:700;padding:4px 11px;border-radius:999px;" + (done ? "background:#E8F5F0;color:#12886A" : "background:#EFEFFC;color:#5251C9");
+
+    const phaseBars = P.phases.map(ph => {
+      let done=0, total=0;
+      P.weeks.filter(w => w.phase===ph.n).forEach(w => { const s = this.weekStats(w); done+=s.done; total+=s.total; });
+      const p = total ? done/total : 0;
+      return {name: ph.name, count: done + "/" + total, fill: barFill(p, p===1)};
+    });
+    const projBars = P.projects.map(p => { const s = this.projStats(p); return {repo:p.repo, count:s.done + "/" + s.total, fill: barFill(s.pct, s.pct===1)}; });
+
+    const lastReview = [3,2,1,0].find(i => P.checklist.some((_, k) => (d.checklist[k]||{})[i]));
+    const ckSummary = lastReview === undefined ? "Você ainda não respondeu. Comece pela coluna Semana 0." : P.reviews[lastReview] + ": " + this.pct(this.ckScore(lastReview)) + " dos itens.";
+
+    const weeks = P.weeks.map(w => {
+      const s = this.weekStats(w), st = this.weekState(w.n);
+      const open = this.state.openWeek ? this.state.openWeek===w.n : w.n===fw;
+      const pillBase = "font-size:11.5px;font-weight:600;padding:3px 10px;border-radius:999px;";
+      return {
+        n: w.n, focus: w.focus, goal: w.goal, work: w.work, range: this.range(w.n), open,
+        count: s.done + "/" + s.total, fill: barFill(s.pct, s.pct===1),
+        pill: st==="now" ? "agora" : st==="late" ? "pendente" : st==="done" ? "concluída" : "",
+        pillStyle: st==="now" ? pillBase+"background:#5B5BD6;color:#fff" : st==="late" ? pillBase+"background:#FCF2E5;color:#B57A28" : pillBase+"background:#E8F5F0;color:#12886A",
+        cardStyle: "background:#fff;border:1px solid " + (st==="now" ? "#D6D6F7" : "#EDEEF4") + ";border-radius:20px;margin-bottom:10px;overflow:hidden;box-shadow:0 1px 2px rgba(25,27,40,.04)",
+        numStyle: "width:46px;height:46px;border-radius:15px;display:grid;place-items:center;font-size:16px;font-weight:700;letter-spacing:-.02em;" + (st==="done" ? "background:#E8F5F0;color:#12886A" : st==="now" ? "background:#5B5BD6;color:#fff" : "background:#F4F5F9;color:#9498A8"),
+        tasks: w.tasks.map(t => this.taskVM(t)),
+        note: d.notes[w.n] || "",
+        onNote: e => { const nd = this.state.d; nd.notes[w.n] = e.target.value; this.persist(nd); },
+        toggle: () => this.setState({openWeek: open ? -1 : w.n}),
+      };
+    });
+
+    const projects = P.projects.map(p => {
+      const s = this.projStats(p);
+      return {
+        repo: p.repo, proves: p.proves, count: s.done + "/" + s.total, badge: badge(s.pct===1), fill: barFill(s.pct, s.pct===1),
+        items: p.items.map(i => {
+          const st = this.dl(i.id);
+          return {
+            t: i.t, w: i.w, done: st.done, link: st.link || "",
+            labelStyle: st.done ? "font-size:14px;color:#A4A8B6;text-decoration:line-through" : "font-size:14px;color:#191B28",
+            toggle: e => this.setDeliv(i.id, {done: e.target.checked}),
+            onLink: e => this.setDeliv(i.id, {link: e.target.value}),
+          };
+        }),
+      };
+    });
+
+    const skills = [];
+    P.resources.forEach(r => { if(skills.indexOf(r.skill) < 0) skills.push(r.skill); });
+    const selBase = "border:1px solid #E7E8EF;border-radius:999px;padding:7px 12px;font-size:12.5px;font-weight:600;cursor:pointer;";
+    const resGroups = skills.map(sk => ({
+      skill: sk,
+      items: P.resources.filter(r => r.skill===sk).map(r => {
+        const st = d.resources[r.id] || "Não iniciado";
+        return {
+          name: r.name, url: r.url, when: r.when, status: st,
+          style: st==="Concluído" ? selBase+"background:#E8F5F0;color:#12886A;border-color:#D3EBE2" : st==="Em uso" ? selBase+"background:#EFEFFC;color:#5251C9;border-color:#E0E0F8" : selBase+"background:#FAFAFD;color:#8C90A0",
+          onChange: e => { const nd = this.state.d; nd.resources[r.id] = e.target.value; this.persist(nd); },
+        };
+      }),
+    }));
+
+    const ckCol = this.state.ckCol === null ? (cw < 4 ? 0 : cw < 8 ? 1 : cw < 12 ? 2 : 3) : this.state.ckCol;
+    const tabBase = "border:0;border-radius:999px;padding:7px 14px;font-size:13px;font-weight:600;cursor:pointer;";
+    const ckTabs = P.reviews.map((r, i) => ({
+      label: r,
+      style: i===ckCol ? tabBase+"background:#fff;color:#4F4CC4;box-shadow:0 1px 3px rgba(25,27,40,.1)" : tabBase+"background:none;color:#8C90A0",
+      go: () => this.setState({ckCol: i}),
+    }));
+    const optBase = "border:0;border-radius:999px;padding:7px 15px;font-size:13px;font-weight:600;cursor:pointer;";
+    const optColor = {"Sim":"background:#15A47A;color:#fff", "Parcial":"background:#E0A335;color:#fff", "Não":"background:#DDDFE8;color:#4C5162"};
+    const ckItems = P.checklist.map((item, i) => {
+      const val = (d.checklist[i]||{})[ckCol] || "";
+      return {
+        item,
+        opts: ["Sim", "Parcial", "Não"].map(o => ({
+          label: o,
+          style: val===o ? optBase+optColor[o] : optBase+"background:none;color:#9498A8",
+          pick: () => { const nd = this.state.d; nd.checklist[i] = Object.assign({}, nd.checklist[i]); nd.checklist[i][ckCol] = val===o ? "" : o; this.persist(nd); },
+        })),
+      };
+    });
+
+    return {
+      nav, isPainel: v==="painel", isSemanas: v==="semanas", isProjetos: v==="projetos",
+      isRecursos: v==="recursos", isChecklist: v==="checklist", isAjustes: v==="ajustes",
+      showHours: this.props.showHours === true,
+      showWorkPrompt: this.props.showWorkPrompt !== false,
+      showReserve: this.props.showReserve !== false,
+      goAjustes: () => this.go("ajustes"), goSemanas: () => this.go("semanas"), goChecklist: () => this.go("checklist"),
+      goFocusWeek: () => this.go("semanas", fw),
+      ctaLabel: cw >= 1 && cw <= 12 ? "Continuar a semana " + cw : "Abrir a semana 1",
+      eyebrow, title, sub, chips,
+      overallPct: this.pct(all.pct),
+      ringStyle: this.ring(all.pct, 116, "rgba(255,255,255,.22)", "#fff"),
+      phaseLabels: P.phases.map(p => ({label: p.name})),
+      stats: [
+        {l: "Tarefas concluídas", v: all.done + "/" + all.total, badge: badge(all.pct===1), fill: barFill(all.pct, all.pct===1)},
+        {l: "Semanas fechadas", v: weeksDone + "/12", badge: badge(weeksDone===12), fill: barFill(weeksDone/12, weeksDone===12)},
+        {l: "Entregáveis no portfólio", v: projDone + "/" + projTotal, badge: badge(projDone===projTotal), fill: barFill(projTotal ? projDone/projTotal : 0, projDone===projTotal)},
+      ],
+      focusLabel: cw>=1 && cw<=12 ? "Continue de onde parou" : "Comece por aqui",
+      focusRange: this.range(fw), focusGoal: fwk.goal, focusWork: fwk.work,
+      focusTasks: fwk.tasks.map(t => this.taskVM(t)),
+      phaseBars, projBars, ckSummary,
+      weeks, projects, resGroups, reserve: P.reserve,
+      ckTabs, ckItems, ckColLabel: P.reviews[ckCol], ckPct: this.pct(this.ckScore(ckCol)),
+      ckRingStyle: this.ring(this.ckScore(ckCol), 62, "#EFF0F5", "#5B5BD6"),
+      ckHistory: P.reviews.map((r, i) => ({label: r, pct: this.pct(this.ckScore(i))})),
+      startDate: d.startDate, goal: d.goal, jsonText: this.state.jsonText, toast: this.state.toast,
+      savedAt: d.savedAt ? "Salvo às " + new Date(d.savedAt).toLocaleString("pt-BR", {day:"2-digit", month:"2-digit", hour:"2-digit", minute:"2-digit"}) : "Nada salvo ainda neste navegador.",
+      onStart: e => { if(e.target.value){ const nd = this.state.d; nd.startDate = e.target.value; this.persist(nd); } },
+      onGoal: e => { const nd = this.state.d; nd.goal = Number(e.target.value)||6; this.persist(nd); },
+      onJson: e => this.setState({jsonText: e.target.value}),
+      onExport: () => {
+        const txt = JSON.stringify(this.state.d, null, 2);
+        this.setState({jsonText: txt});
+        if(navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(() => this.toast("Backup copiado"), () => this.toast("Backup exibido abaixo"));
+        else this.toast("Backup exibido abaixo");
+      },
+      onImport: () => {
+        try{
+          const s = JSON.parse(this.state.jsonText);
+          if(!s || typeof s !== "object" || !("tasks" in s)) throw new Error("formato");
+          this.persist(Object.assign(this.blank(), s));
+          this.toast("Progresso restaurado");
+        }catch(err){ this.toast("Não foi possível ler o backup"); }
+      },
+      onReset: () => {
+        if(confirm("Apagar todo o progresso salvo neste navegador? Esta ação não tem volta.")){
+          try{ localStorage.removeItem(this.KEY); }catch(e){}
+          this.setState({d: this.blank()});
+          this.toast("Progresso apagado");
+        }
+      },
+    };
+  }
+}
+</script>
+
+
+</body></html>
