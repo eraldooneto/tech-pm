@@ -367,7 +367,27 @@
   <sc-if value="{{ isProjetos }}">
     <div>
       <h1 style="margin:8px 0 0;font-size:clamp(26px,3vw,34px);font-weight:700;letter-spacing:-.03em">Projetos</h1>
-      <p style="margin:8px 0 26px;color:#6B7080;max-width:540px">Cinco repositórios públicos. É isso que fica quando as 12 semanas acabam.</p>
+      <p style="margin:8px 0 20px;color:#6B7080;max-width:560px">Cinco repositórios públicos. É isso que fica quando as 12 semanas acabam. No fim, fixe no perfil do GitHub os quatro marcados abaixo — o portfolio-api sustenta os outros, mas não é o que você quer que abram primeiro.</p>
+
+      <section style="background:#fff;border:1px solid #EDEEF4;border-radius:22px;padding:24px 26px;margin-bottom:14px;box-shadow:0 1px 2px rgba(25,27,40,.04)">
+        <h2 style="margin:0;font-size:16.5px;font-weight:700;letter-spacing:-.02em">Regras que valem para todos</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:16px">
+          <div style="padding:16px 18px;background:#F6F6FD;border-radius:16px;font-size:13.5px;line-height:1.55;color:#585C6C">
+            <span style="display:block;font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#8A8DE0;margin-bottom:6px">README</span>
+            O problema, um diagrama (Mermaid ou C4) e a seção “Trade-offs que eu rejeitei e por quê” — essa última é a que mais pesa em entrevista.
+          </div>
+          <div style="padding:16px 18px;background:#F6F6FD;border-radius:16px;font-size:13.5px;line-height:1.55;color:#585C6C">
+            <span style="display:block;font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#8A8DE0;margin-bottom:6px">ADRs</span>
+            Um arquivo por decisão relevante em <code style="font-size:12.5px">/adr/0001-titulo.md</code>: contexto, alternativas, escolha e consequências.
+          </div>
+          <div style="padding:16px 18px;background:#F4F8F6;border-radius:16px;font-size:13.5px;line-height:1.55;color:#585C6C">
+            <span style="display:block;font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#5FA98D;margin-bottom:6px">Em inglês</span>
+            Se você conseguir manter o ritmo. Coordenar entre LATAM e China significa que o inglês é a língua de trabalho, e o portfólio fica legível para recrutador de fora.
+          </div>
+        </div>
+        <p style="margin:16px 0 0;font-size:14px;line-height:1.6;color:#6B7080">O objetivo não é código bonito, é <strong style="color:#191B28;font-weight:600">decisão técnica documentada</strong>. Só código te faz parecer dev júnior; só documento te faz parecer PM comum. A combinação é o que comunica Tech PM.</p>
+      </section>
+
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:14px;align-items:start">
         <sc-for list="{{ projects }}" as="p" hint-placeholder-count="5">
           <section style="background:#fff;border:1px solid #EDEEF4;border-radius:22px;padding:24px 26px;box-shadow:0 1px 2px rgba(25,27,40,.04)">
@@ -375,7 +395,12 @@
               <h2 style="margin:0;font-size:16.5px;font-weight:700;letter-spacing:-.02em">{{ p.repo }}</h2>
               <span style="{{ p.badge }}">{{ p.count }}</span>
             </div>
-            <p style="margin:8px 0 16px;font-size:14px;color:#6B7080">{{ p.proves }}</p>
+            <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:10px">
+              <sc-for list="{{ p.chips }}" as="c" hint-placeholder-count="2">
+                <span style="{{ c.style }}">{{ c.label }}</span>
+              </sc-for>
+            </div>
+            <p style="margin:10px 0 16px;font-size:14px;color:#6B7080">{{ p.proves }}</p>
             <div style="height:6px;border-radius:3px;background:#F0F1F6;overflow:hidden"><span style="{{ p.fill }}"></span></div>
             <div style="margin-top:6px">
               <sc-for list="{{ p.items }}" as="i" hint-placeholder-count="4">
@@ -391,6 +416,41 @@
                 </div>
               </sc-for>
             </div>
+            <button sc-camel-on-click="{{ p.toggle }}" style="width:100%;margin-top:16px;border:1px solid #E7E8EF;background:#FAFAFD;border-radius:14px;padding:10px 14px;font-size:13.5px;font-weight:600;color:#5251C9;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px" style-hover="background:#F1F1FB">{{ p.detailLabel }} <span style="font-size:11px">{{ p.detailArrow }}</span></button>
+            <sc-if value="{{ p.open }}">
+              <div style="margin-top:16px">
+                <p style="margin:0;font-size:14.5px;line-height:1.6;color:#191B28">{{ p.pitch }}</p>
+                <sc-for list="{{ p.content }}" as="c" hint-placeholder-count="2">
+                  <div style="display:grid;grid-template-columns:14px 1fr;gap:10px;margin-top:12px;font-size:13.5px;line-height:1.55;color:#585C6C">
+                    <span style="color:#C3C5D4">—</span>
+                    <span>{{ c.text }}</span>
+                  </div>
+                </sc-for>
+                <sc-if value="{{ p.blocksTitle }}">
+                  <div style="font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#9498A8;margin-top:20px">{{ p.blocksTitle }}</div>
+                </sc-if>
+                <sc-for list="{{ p.blocks }}" as="b" hint-placeholder-count="3">
+                  <div style="padding:12px 0;border-top:1px solid #F1F2F7">
+                    <div style="font-size:13.5px;font-weight:600;color:#191B28">{{ b.label }}</div>
+                    <div style="font-size:13.5px;line-height:1.55;color:#6B7080;margin-top:3px">{{ b.text }}</div>
+                  </div>
+                </sc-for>
+                <sc-if value="{{ p.hasTools }}">
+                  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;margin-top:16px;padding-top:14px;border-top:1px solid #F1F2F7">
+                    <span style="font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#9498A8">Ferramentas</span>
+                    <sc-for list="{{ p.tools }}" as="tl" hint-placeholder-count="3">
+                      <a href="{{ tl.url }}" target="_blank" rel="noopener" style="font-size:13px;font-weight:500">{{ tl.name }} ↗</a>
+                    </sc-for>
+                  </div>
+                </sc-if>
+                <sc-for list="{{ p.callouts }}" as="co" hint-placeholder-count="1">
+                  <div style="{{ co.boxStyle }}">
+                    <span style="{{ co.labelStyle }}">{{ co.title }}</span>
+                    {{ co.text }}
+                  </div>
+                </sc-for>
+              </div>
+            </sc-if>
           </section>
         </sc-for>
       </div>
@@ -565,11 +625,11 @@ class Component extends DCLogic {
       ]},
       {n:9, phase:3, focus:"Shipping", goal:"portfolio-api no ar com Docker, testes e CI verde (P3).", work:"Acompanhe um deploy real do time do início ao fim. Anote cada etapa e quanto tempo levou.", tasks:[
         {id:"t20", type:"estudo", title:"Docker, Get Started (tutorial oficial)", res:"Docker", url:"https://docs.docker.com/get-started/", h:2},
-        {id:"t21", type:"artefato", title:"portfolio-api: FastAPI + testes + Dockerfile + GitHub Actions + deploy em free tier + README com ADRs", res:"FastAPI", url:"https://fastapi.tiangolo.com", h:5},
+        {id:"t21", type:"artefato", title:"portfolio-api: FastAPI + testes + Dockerfile + GitHub Actions + deploy em free tier + README com ADRs", res:"FastAPI", url:"https://fastapi.tiangolo.com", h:11},
       ]},
       {n:10, phase:3, focus:"Evals de IA", goal:"Agente de triagem medido: acurácia, custo e latência por versão (P4).", work:"Proponha ao time um eval mínimo para uma feature ou automação existente: 20 casos, uma métrica, um threshold.", tasks:[
         {id:"t22", type:"estudo", title:"promptfoo: setup do primeiro eval", res:"promptfoo", url:"https://www.promptfoo.dev", h:1.5},
-        {id:"t23", type:"artefato", title:"Eval harness (dataset rotulado, 2 a 3 modelos, 2 a 3 prompts) + painel de custo, latência e acurácia + guardrails de PII", res:"promptfoo", url:"https://www.promptfoo.dev", h:5},
+        {id:"t23", type:"artefato", title:"Eval harness (dataset rotulado, 2 a 3 modelos, 2 a 3 prompts) + painel de custo, latência e acurácia + guardrails de PII", res:"promptfoo", url:"https://www.promptfoo.dev", h:11},
       ]},
       {n:11, phase:3, focus:"Dados", goal:"product-analytics-olist com queries, dashboard e PM memo (P5).", work:"Use uma das queries do P5 como modelo para uma pergunta real do produto e apresente o resultado numa reunião.", tasks:[
         {id:"t24", type:"estudo", title:"Mode SQL Tutorial, nível Intermediate (window functions)", res:"Mode SQL", url:"https://mode.com/sql-tutorial", h:2},
@@ -582,30 +642,124 @@ class Component extends DCLogic {
       ]},
     ],
     projects: [
-      {id:"P1", repo:"system-design-notebook", proves:"Você lê e desenha sistemas.", items:[
+      {id:"P1", repo:"system-design-notebook", proves:"Você lê e desenha sistemas.", pin:true,
+        pitch:"Seu caderno público de arquitetura. É o repositório que acompanha a trilha inteira e o primeiro que um recrutador técnico abre.",
+        content:[
+          "Notas por módulo do freeCodeCamp — com o diagrama feito por você antes de ver o do instrutor. Essa ordem é o ponto do exercício.",
+          "Três design docs completos, todos na mesma estrutura: contexto e problema, requisitos funcionais e não-funcionais, estimativa de capacidade (QPS, storage, banda — ordem de grandeza basta), C4 nível 1 e 2, alternativas e trade-offs, ADRs das decisões principais, riscos e modos de falha.",
+        ],
+        blocksTitle:"Os três design docs",
+        blocks:[
+          {label:"#1 · Encurtador de URL", text:"Geração de ID, cache de leitura, índice, escala de leitura vs escrita."},
+          {label:"#2 · Sistema de notificações", text:"Filas, retry, idempotência, múltiplos canais, entrega garantida."},
+          {label:"#3 · Rate limiter", text:"Token bucket vs sliding window, onde fica (gateway? serviço?), estado distribuído."},
+        ],
+        tools:[
+          {name:"Mermaid", url:"https://mermaid.js.org"},
+          {name:"Excalidraw", url:"https://excalidraw.com"},
+          {name:"C4 Model", url:"https://c4model.com"},
+          {name:"ADR", url:"https://adr.github.io"},
+        ],
+        items:[
         {id:"d1", t:"Repositório criado com README explicando o propósito", w:1},
         {id:"d2", t:"Notas por módulo com diagramas Mermaid", w:2},
         {id:"d3", t:"Design doc #1: encurtador de URL", w:3},
         {id:"d4", t:"Design doc #2: sistema de notificações", w:4},
         {id:"d5", t:"Design doc #3: rate limiter", w:12},
       ]},
-      {id:"P2", repo:"tech-pm-spec-kit", proves:"Você escreve o artefato que engenheiro confia.", items:[
+      {id:"P2", repo:"tech-pm-spec-kit", proves:"Você escreve o artefato que engenheiro confia.", pin:true,
+        pitch:"Templates reutilizáveis mais um exemplo completo preenchido. O exemplo é o que importa — template vazio qualquer um copia da internet.",
+        content:[
+          "Seis templates: PRD, tech spec (design doc), RFC, ADR, risk register e eval plan para features de IA.",
+          "O exemplo preenchido é o agente de triagem de tickets — escolhido de propósito porque usa sua vivência de suporte na Angular, e porque é o mesmo produto do P4. Os dois repositórios se referenciam.",
+        ],
+        blocksTitle:"O exemplo preenchido: agente de triagem",
+        blocks:[
+          {label:"PRD", text:"Problema e contexto · métricas de sucesso: tempo de primeira resposta, % de auto-resolução, CSAT · não-objetivos, a seção que separa spec boa de spec vaga · público, escopo e dependências."},
+          {label:"Contrato OpenAPI", text:"Versionamento, formato de erro, paginação e autenticação. Escrito no Swagger Editor e validado antes de commitar."},
+          {label:"Tech spec", text:"Arquitetura com diagrama · alternativas descartadas e por quê · estimativa de custo de infra · plano de rollout com fases, feature flag e critério de rollback."},
+          {label:"Eval plan", text:"Dataset de tickets rotulados: como monta, quantos, quem rotula · precisão por categoria, taxa de escalonamento indevido, taxa de abstenção · threshold de go/no-go, o número abaixo do qual não vai para produção."},
+          {label:"Risk register", text:"Alucinação, dado pessoal (LGPD), custo por ticket e latência — cada risco com probabilidade, impacto e mitigação."},
+        ],
+        tools:[
+          {name:"Swagger Editor", url:"https://editor.swagger.io"},
+          {name:"ADR", url:"https://adr.github.io"},
+        ],
+        items:[
         {id:"d6", t:"Contrato OpenAPI do agente de triagem", w:5},
         {id:"d7", t:"PRD com métricas e plano de evals", w:6},
         {id:"d8", t:"Tech spec com arquitetura, custo e risk register", w:8},
-        {id:"d9", t:"Templates reutilizáveis: PRD, tech spec, ADR, eval plan", w:8},
+        {id:"d9", t:"Templates reutilizáveis: PRD, tech spec, RFC, ADR, risk register, eval plan", w:8},
       ]},
-      {id:"P3", repo:"portfolio-api", proves:"Você entende build, test e deploy de ponta a ponta.", items:[
+      {id:"P3", repo:"portfolio-api", proves:"Você entende build, test e deploy de ponta a ponta.",
+        pitch:"Uma API pequena, com pipeline de gente grande. O valor está no pipeline, não na API.",
+        content:[
+          "API REST em Python + FastAPI expondo seus projetos e cases: GET /projects, GET /projects/{id}, filtros por tag e ano.",
+          "Documentação OpenAPI automática, testes com pytest cobrindo os caminhos felizes e ao menos um caso de erro.",
+          "Dockerfile que sobe a aplicação num comando, GitHub Actions rodando lint e testes a cada pull request.",
+          "Deploy num free tier (Render, Fly.io ou Railway — os planos mudam, confirme o atual antes) e README com diagrama da arquitetura e um ADR por escolha de stack.",
+        ],
+        tools:[
+          {name:"FastAPI", url:"https://fastapi.tiangolo.com"},
+          {name:"Docker", url:"https://docs.docker.com/get-started/"},
+          {name:"GitHub Actions", url:"https://docs.github.com/actions"},
+        ],
+        callouts:[
+          {tone:"tip", title:"Alternativa que eu recomendo", text:"Troque a API de portfólio por um gateway de webhook: recebe evento de um provedor externo, valida assinatura HMAC, enfileira, processa com retry e backoff, idempotência por event_id e dead-letter queue. Mesma stack, mesmo esforço de pipeline, sinal muito maior — é o problema que você já enfrentou com a API do WhatsApp/Meta na LeadConverte. Uma API que lista os próprios projetos qualquer engenheiro identifica como exercício."},
+          {tone:"warn", title:"Sobre as horas", text:"Primeiro Docker build, primeiro pipeline de CI e primeiro deploy consomem o tempo todo só em depuração. A trilha já reserva 11 h na tarefa de construção da semana 9 — se estourar, divida em duas semanas em vez de entregar pela metade."},
+        ],
+        items:[
         {id:"d10", t:"API FastAPI com docs OpenAPI e testes", w:9},
         {id:"d11", t:"Dockerfile e CI verde no GitHub Actions", w:9},
         {id:"d12", t:"Deploy no ar e README com ADRs", w:9},
       ]},
-      {id:"P4", repo:"support-triage-agent", proves:"Você constrói e mede produto de IA. Projeto estrela.", items:[
+      {id:"P4", repo:"support-triage-agent", proves:"Você constrói e mede produto de IA.", pin:true, star:true,
+        pitch:"O projeto estrela. Junta mestrado, vivência de suporte e agentes — e é o que vai aparecer em entrevista.",
+        blocksTitle:"Escopo em camadas",
+        blocks:[
+          {label:"1 · Classificação", text:"Tickets classificados por categoria e prioridade com LLM. Comece com few-shot; depois evolua para RAG sobre uma base de FAQ ou documentação."},
+          {label:"2 · Roteamento", text:"Sugere fila ou responsável e gera rascunho de resposta."},
+          {label:"3 · Eval harness", text:"O coração do projeto. Dataset rotulado de 100 a 200 tickets (sintéticos servem) · acurácia por categoria · taxa de abstenção, quantas vezes o sistema diz \"não sei\" em vez de chutar · comparação entre 2 a 3 modelos e 2 a 3 versões de prompt, rodando com promptfoo."},
+          {label:"4 · Painel de operação", text:"Custo por ticket, latência p50 e p95, acurácia — por versão. Streamlit resolve."},
+          {label:"5 · Guardrails", text:"Detecção e mascaramento de dado pessoal antes de enviar ao modelo, e fallback para humano quando a confiança fica abaixo do threshold."},
+        ],
+        tools:[
+          {name:"promptfoo", url:"https://www.promptfoo.dev"},
+          {name:"Streamlit", url:"https://streamlit.io"},
+          {name:"Hamel: evals", url:"https://hamel.dev/blog/posts/evals/"},
+        ],
+        callouts:[
+          {tone:"tip", title:"Por que este vale mais que os outros", text:"A maioria dos \"AI PMs\" do mercado sabe usar ferramenta. Quase ninguém tem um artefato público mostrando que sabe avaliar e operar um sistema de IA — quanto custa, quando falha, como você prova que melhorou. É isso que o eval harness comunica."},
+          {tone:"warn", title:"Sobre as horas", text:"Só montar o dataset rotulado já consome uma semana inteira de estudo. A trilha reserva 11 h na tarefa de construção da semana 10 — trate como piso, não como teto."},
+        ],
+        items:[
         {id:"d13", t:"Protótipo: classificador + RAG rodando local", w:7},
         {id:"d14", t:"Eval harness com dataset rotulado", w:10},
         {id:"d15", t:"Painel de custo, latência e acurácia + guardrails de PII", w:10},
       ]},
-      {id:"P5", repo:"product-analytics-olist", proves:"Você tira insight do dado sem pedir a ninguém.", items:[
+      {id:"P5", repo:"product-analytics-olist", proves:"Você tira insight do dado sem pedir a ninguém.", pin:true,
+        pitch:"Rápido de fazer e muito usado em entrevista. Roda sobre o dataset da Olist, com cerca de 100 mil pedidos reais de e-commerce brasileiro.",
+        content:[
+          "As queries, comentadas, num diretório /queries, e um dashboard em Metabase (sobe via Docker em 10 minutos) ou Streamlit.",
+          "PM memo de 1 página — o entregável que mais importa: 3 decisões que os dados sugerem, os trade-offs de cada uma, e o que você validaria antes de agir. Dado sem recomendação é relatório; dado com recomendação é trabalho de PM.",
+        ],
+        blocksTitle:"As 8 perguntas de PM",
+        blocks:[
+          {label:"1", text:"Funil pedido → pagamento → envio → entrega: onde vaza mais?"},
+          {label:"2", text:"Atraso de entrega × nota de review — qual o ponto em que a nota despenca?"},
+          {label:"3", text:"Retenção por cohort mensal."},
+          {label:"4", text:"Ticket médio por categoria de produto."},
+          {label:"5", text:"Concentração de sellers: quantos respondem por 80% do GMV?"},
+          {label:"6", text:"Frete como proporção do valor do pedido, por região."},
+          {label:"7", text:"Tempo de aprovação de pagamento por método."},
+          {label:"8", text:"Categorias com maior taxa de cancelamento."},
+        ],
+        tools:[
+          {name:"Dataset Olist", url:"https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce"},
+          {name:"Metabase", url:"https://www.metabase.com"},
+          {name:"Streamlit", url:"https://streamlit.io"},
+        ],
+        items:[
         {id:"d16", t:"8 queries respondendo perguntas de PM", w:11},
         {id:"d17", t:"Dashboard (Metabase ou Streamlit)", w:11},
         {id:"d18", t:"PM memo com 3 decisões e trade-offs", w:11},
@@ -655,7 +809,7 @@ class Component extends DCLogic {
 
   constructor(p){
     super(p);
-    this.state = {view:"painel", openWeek:null, panelWeek:null, toast:"", jsonText:"", ckCol:null, d:this.load()};
+    this.state = {view:"painel", openWeek:null, panelWeek:null, openProject:null, toast:"", jsonText:"", ckCol:null, d:this.load()};
   }
   blank(){ return {startDate:"2026-09-07", goal:6, tasks:{}, deliverables:{}, resources:{}, checklist:{}, notes:{}, savedAt:null}; }
   load(){
@@ -819,10 +973,32 @@ class Component extends DCLogic {
       };
     });
 
+    const chipBaseP = "font-size:11.5px;font-weight:600;letter-spacing:.02em;padding:3px 10px;border-radius:999px;";
+    const calloutTone = {
+      tip:  {box:"padding:15px 17px;background:#F6F6FD;border-radius:16px;font-size:13.5px;line-height:1.55;color:#585C6C;margin-top:10px", label:"font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#8A8DE0;display:block;margin-bottom:6px"},
+      warn: {box:"padding:15px 17px;background:#FCF6EC;border-radius:16px;font-size:13.5px;line-height:1.55;color:#6B6152;margin-top:10px", label:"font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#B57A28;display:block;margin-bottom:6px"},
+    };
     const projects = P.projects.map(p => {
       const s = this.projStats(p);
+      const open = this.state.openProject === p.id;
+      const chips = [{label: p.id, style: chipBaseP+"background:#F1F2F7;color:#6B7080"}];
+      if(p.star) chips.push({label: "projeto estrela", style: chipBaseP+"background:#FCF2E5;color:#B57A28"});
+      if(p.pin) chips.push({label: "fixar no perfil", style: chipBaseP+"background:#EFEFFC;color:#5251C9"});
       return {
         repo: p.repo, proves: p.proves, count: s.done + "/" + s.total, badge: badge(s.pct===1), fill: barFill(s.pct, s.pct===1),
+        chips, open,
+        pitch: p.pitch || "",
+        content: (p.content || []).map(c => ({text: c})),
+        blocksTitle: p.blocksTitle || "",
+        blocks: p.blocks || [],
+        tools: p.tools || [], hasTools: (p.tools || []).length > 0,
+        callouts: (p.callouts || []).map(c => ({
+          title: c.title, text: c.text,
+          boxStyle: calloutTone[c.tone].box, labelStyle: calloutTone[c.tone].label,
+        })),
+        detailLabel: open ? "Fechar" : "Sobre o projeto",
+        detailArrow: open ? "▴" : "▾",
+        toggle: () => this.setState({openProject: open ? null : p.id}),
         items: p.items.map(i => {
           const st = this.dl(i.id);
           return {
