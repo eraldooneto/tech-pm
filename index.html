@@ -213,12 +213,12 @@
           </div>
         </div>
         <div style="margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,255,.18)">
-          <div style="display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:6px">
-            <sc-for list="{{ chips }}" as="c" hint-placeholder-count="12">
+          <div style="{{ chipsGrid }}">
+            <sc-for list="{{ chips }}" as="c" hint-placeholder-count="14">
               <button sc-camel-on-click="{{ c.go }}" title="{{ c.title }}" style="{{ c.style }}">{{ c.n }}</button>
             </sc-for>
           </div>
-          <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-top:10px">
+          <div style="{{ phaseGrid }}">
             <sc-for list="{{ phaseLabels }}" as="p" hint-placeholder-count="3">
               <span style="font-size:11.5px;font-weight:500;color:rgba(255,255,255,.65)">{{ p.label }}</span>
             </sc-for>
@@ -309,8 +309,12 @@
   <sc-if value="{{ isSemanas }}">
     <div>
       <h1 style="margin:8px 0 0;font-size:clamp(26px,3vw,34px);font-weight:700;letter-spacing:-.03em">Sua trilha</h1>
-      <p style="margin:8px 0 26px;color:#6B7080;max-width:540px">Doze semanas, uma de cada vez. Abra a semana, marque o que concluiu e guarde uma nota do que aprendeu.</p>
-      <sc-for list="{{ weeks }}" as="w" hint-placeholder-count="12">
+      <p style="margin:8px 0 26px;color:#6B7080;max-width:540px">Catorze semanas, uma de cada vez. Abra a semana, marque o que concluiu e guarde uma nota do que aprendeu.</p>
+      <div style="display:flex;gap:12px;align-items:flex-start;padding:14px 18px;margin:-12px 0 22px;background:#F4F8F6;border-radius:16px;font-size:13.5px;line-height:1.55;color:#585C6C;max-width:720px">
+        <span style="flex:0 0 auto;font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#5FA98D;padding-top:2px">Toda semana</span>
+        <span>10 minutos: antes de o engenheiro estimar, escreva a sua estimativa e o porquê no decision-log. Na semana 14 você compara. É o hábito que mais muda a conversa técnica — e o mais fácil de pular.</span>
+      </div>
+      <sc-for list="{{ weeks }}" as="w" hint-placeholder-count="14">
         <div style="{{ w.cardStyle }}">
           <button sc-camel-on-click="{{ w.toggle }}" style="width:100%;display:grid;grid-template-columns:46px 1fr auto;gap:16px;align-items:center;background:none;border:0;padding:18px 22px;cursor:pointer;text-align:left">
             <span style="{{ w.numStyle }}">{{ w.n }}</span>
@@ -367,7 +371,7 @@
   <sc-if value="{{ isProjetos }}">
     <div>
       <h1 style="margin:8px 0 0;font-size:clamp(26px,3vw,34px);font-weight:700;letter-spacing:-.03em">Projetos</h1>
-      <p style="margin:8px 0 20px;color:#6B7080;max-width:560px">Cinco repositórios públicos. É isso que fica quando as 12 semanas acabam. No fim, fixe no perfil do GitHub os quatro marcados abaixo — o portfolio-api sustenta os outros, mas não é o que você quer que abram primeiro.</p>
+      <p style="margin:8px 0 20px;color:#6B7080;max-width:560px">Seis repositórios: cinco públicos e um privado. É isso que fica quando as 14 semanas acabam. No fim, fixe no perfil do GitHub os quatro marcados abaixo — o webhook-gateway sustenta os outros, e o decision-log é seu.</p>
 
       <section style="background:#fff;border:1px solid #EDEEF4;border-radius:22px;padding:24px 26px;margin-bottom:14px;box-shadow:0 1px 2px rgba(25,27,40,.04)">
         <h2 style="margin:0;font-size:16.5px;font-weight:700;letter-spacing:-.02em">Regras que valem para todos</h2>
@@ -484,7 +488,7 @@
       <sc-if value="{{ showReserve }}" hint-placeholder-val="{{ true }}">
         <section style="margin-top:30px">
           <h2 style="margin:0;font-size:17px;font-weight:700;letter-spacing:-.02em">Reserva</h2>
-          <p style="margin:6px 0 14px;font-size:14px;color:#7A7F90">Fora das 12 semanas. Use só quando um item específico pedir.</p>
+          <p style="margin:6px 0 14px;font-size:14px;color:#7A7F90">Fora das 14 semanas. Use só quando um item específico pedir.</p>
           <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:12px">
             <sc-for list="{{ reserve }}" as="r" hint-placeholder-count="6">
               <div style="background:#fff;border:1px solid #EDEEF4;border-radius:18px;padding:16px 18px">
@@ -501,7 +505,7 @@
   <sc-if value="{{ isChecklist }}">
     <div>
       <h1 style="margin:8px 0 0;font-size:clamp(26px,3vw,34px);font-weight:700;letter-spacing:-.03em">Autoavaliação</h1>
-      <p style="margin:8px 0 22px;color:#6B7080;max-width:560px">Responda Sim só para o que você consegue fazer hoje, sem preparação. Refaça nas semanas 0, 4, 8 e 12.</p>
+      <p style="margin:8px 0 22px;color:#6B7080;max-width:560px">Responda Sim só para o que você consegue fazer hoje, sem preparação. Refaça nas semanas 0, 4, 8 e 14.</p>
 
       <section style="background:#fff;border:1px solid #EDEEF4;border-radius:22px;padding:22px 26px;box-shadow:0 1px 2px rgba(25,27,40,.04);display:flex;align-items:center;gap:26px;flex-wrap:wrap">
         <div style="display:flex;align-items:center;gap:16px">
@@ -512,7 +516,7 @@
           </div>
           <div>
             <div style="font-size:15px;font-weight:600">{{ ckColLabel }}</div>
-            <div style="font-size:13.5px;color:#8C90A0">meta de 80% na semana 12</div>
+            <div style="font-size:13.5px;color:#8C90A0">meta de 80% na semana 14</div>
           </div>
         </div>
         <div style="display:flex;gap:4px;flex-wrap:wrap;margin-left:auto;background:#F4F5F9;padding:4px;border-radius:999px">
@@ -585,63 +589,109 @@ class Component extends DCLogic {
     phases: [
       {n:1, name:"Fase 1 · Fundamentos", weeks:[1,2,3,4]},
       {n:2, name:"Fase 2 · APIs, IA e cloud", weeks:[5,6,7,8]},
-      {n:3, name:"Fase 3 · Construir e publicar", weeks:[9,10,11,12]},
+      {n:3, name:"Fase 3 · Construir e publicar", weeks:[9,10,11,12,13,14]},
     ],
     weeks: [
-      {n:1, phase:1, focus:"Git, GitHub e pipeline", goal:"Repositório system-design-notebook criado e README de perfil no GitHub.", work:"Abra o repositório do produto que você gerencia e leia o último PR mesclado. Anote o que não entendeu.", tasks:[
+      {n:1, phase:1, focus:"Git, GitHub e pipeline", goal:"Repositório system-design-notebook criado, README de perfil e decision-log iniciado.", work:"Abra o repositório do produto que você gerencia e leia o último PR mesclado. Anote o que não entendeu.", tasks:[
         {id:"t1", type:"estudo", title:"GitHub Skills: Introduction to GitHub, Review pull requests e Hello GitHub Actions", res:"GitHub Skills", url:"https://skills.github.com", h:3},
         {id:"t2", type:"artefato", title:"Criar o repo system-design-notebook e o README de perfil no GitHub", res:"GitHub", url:"https://github.com", h:1.5},
+        {id:"t40", type:"prática", title:"Criar o decision-log (repo privado) com o template de memo e o log de estimativas; registrar a primeira estimativa sua antes da do engenheiro", res:"decision-log", url:"", h:0.5},
       ]},
-      {n:2, phase:1, focus:"System design I", goal:"3 diagramas Mermaid com um parágrafo de resumo por módulo.", work:"Desenhe em 15 minutos a arquitetura do produto que você gerencia hoje: componentes, fluxo de dados, onde está o risco. Mostre a um engenheiro e peça para corrigir.", tasks:[
+      {n:2, phase:1, focus:"System design I", goal:"3 diagramas Mermaid por módulo e a arquitetura do seu produto corrigida por um engenheiro.", work:"Compare o seu diagrama com a correção do engenheiro: anote os 3 pontos que você errou e por quê. Isso vai para o notebook.", tasks:[
         {id:"t3", type:"estudo", title:"freeCodeCamp, Learn Software System Design (parte 1): bancos, escala, load balancing, SPOF", res:"freeCodeCamp", url:"https://www.freecodecamp.org/news/learn-software-system-design/", h:2},
         {id:"t4", type:"artefato", title:"Desenhar 3 diagramas Mermaid e resumir cada módulo em um parágrafo", res:"Mermaid", url:"https://mermaid.js.org", h:2},
+        {id:"t29", type:"artefato", title:"Desenhar a arquitetura do produto que você gerencia (componentes, fluxo de dados, onde está o risco), pedir correção a um engenheiro e commitar diagrama + correções no notebook", res:"Mermaid", url:"https://mermaid.js.org", h:1.5},
       ]},
-      {n:3, phase:1, focus:"System design II e APIs", goal:"Design doc #1: encurtador de URL.", work:"Leia dois PRs abertos do time. Para cada um, escreva em uma frase o que muda e o que pode quebrar. Peça a um engenheiro para revisar o design doc #1.", tasks:[
+      {n:3, phase:1, focus:"System design II e APIs", goal:"Design doc #1: encurtador de URL, com review de engenheiro commitado.", work:"Leia dois PRs abertos do time. Para cada um, escreva em uma frase o que muda e o que pode quebrar. Peça a um engenheiro para revisar o design doc #1 e commite os comentários.", tasks:[
         {id:"t5", type:"estudo", title:"freeCodeCamp (parte 2): API design, REST, GraphQL, autenticação e segurança", res:"freeCodeCamp", url:"https://www.freecodecamp.org/news/learn-software-system-design/", h:2},
         {id:"t6", type:"artefato", title:"Design doc #1: encurtador de URL (C4 nível 1 e 2, ADR, estimativa de capacidade)", res:"C4 Model", url:"https://c4model.com", h:3},
+        {id:"t30", type:"prática", title:"Percorrer uma request de ponta a ponta no código do seu produto (rota → handler → serviço → banco → resposta) e desenhar o fluxo no notebook", res:"Repositório do produto", url:"", h:2},
       ]},
-      {n:4, phase:1, focus:"SQL e escrita técnica", goal:"Design doc #2: sistema de notificações.", work:"Pegue uma pergunta que você faria ao time de dados esta semana e responda você mesmo com SQL. Peça revisão do design doc #2.", tasks:[
+      {n:4, phase:1, focus:"SQL e escrita técnica", goal:"Design doc #2: sistema de notificações, com review commitado. Memo 1 no decision-log.", work:"Apresente o resultado da sua query (memo 1) numa reunião do time, com a recomendação. Anote o que rebateram. Peça revisão do design doc #2.", tasks:[
         {id:"t7", type:"estudo", title:"SQLBolt, todas as lições", res:"SQLBolt", url:"https://sqlbolt.com", h:2.5},
         {id:"t8", type:"estudo", title:"Google Technical Writing One", res:"Google Tech Writing", url:"https://developers.google.com/tech-writing", h:2.5},
         {id:"t9", type:"artefato", title:"Design doc #2: sistema de notificações (filas, retries, canais)", res:"ADR", url:"https://adr.github.io", h:2},
+        {id:"t41", type:"prática", title:"Memo 1: uma pergunta real do roadmap respondida com SQL seu, no banco do produto — fatos, recomendação e o que o engenheiro rebateu", res:"decision-log", url:"", h:1.5},
       ]},
-      {n:5, phase:2, focus:"Contratos de API", goal:"Contrato OpenAPI do agente de triagem de tickets (P2).", work:"Escolha um endpoint real do produto e compare com o que aprendeu: versionamento, erros, paginação, auth. O que falta?", tasks:[
+      {n:5, phase:2, focus:"Contratos de API e webhooks", goal:"Contrato OpenAPI do agente de triagem de tickets (P2).", work:"Escolha um endpoint real do produto e compare com o que aprendeu: versionamento, erros, paginação, auth. O que falta? Se o produto recebe webhooks, cheque assinatura e idempotência.", tasks:[
         {id:"t10", type:"estudo", title:"OpenAPI Specification com o Swagger Editor", res:"Swagger Editor", url:"https://editor.swagger.io", h:2},
         {id:"t11", type:"artefato", title:"Escrever o contrato OpenAPI do agente de triagem de tickets", res:"Swagger Editor", url:"https://editor.swagger.io", h:3},
+        {id:"t31", type:"leitura", title:"Standard Webhooks (spec) + Stripe, boas práticas de webhooks: assinatura HMAC, replay, idempotência por event_id, retry com backoff", res:"Standard Webhooks", url:"https://www.standardwebhooks.com/", h:1},
       ]},
       {n:6, phase:2, focus:"Produto de IA I", goal:"PRD do agente de triagem com métricas e plano de evals (P2).", work:"Liste as features de IA ou automações do produto e responda: como sabemos que funcionam? Que métrica diria que falharam?", tasks:[
         {id:"t12", type:"estudo", title:"HelloPM, masterclasses de LLMs, RAG e evals", res:"HelloPM", url:"https://hellopm.co/free/", h:4},
         {id:"t13", type:"leitura", title:"Your AI Product Needs Evals (Hamel Husain)", res:"hamel.dev", url:"https://hamel.dev/blog/posts/evals/", h:0.5},
+        {id:"t32", type:"leitura", title:"Anthropic: Define your success criteria + Define success criteria and build evaluations", res:"Claude Docs", url:"https://docs.anthropic.com/en/docs/build-with-claude/develop-tests", h:1},
         {id:"t14", type:"artefato", title:"PRD do agente de triagem: problema, métricas de sucesso, não-objetivos e plano de evals", res:"Design Docs at Google", url:"https://www.industrialempathy.com/posts/design-docs-at-google/", h:2.5},
       ]},
       {n:7, phase:2, focus:"Produto de IA II", goal:"Protótipo do agente de triagem rodando local (P4).", work:"Mostre o protótipo a um engenheiro ou ao time de suporte e pergunte o que quebraria com tickets reais.", tasks:[
         {id:"t15", type:"estudo", title:"Microsoft Generative AI for Beginners, lições de RAG e agentes", res:"GenAI for Beginners", url:"https://github.com/microsoft/generative-ai-for-beginners", h:3},
         {id:"t16", type:"artefato", title:"Protótipo: classificador de tickets com LLM + RAG sobre uma base de FAQ", res:"GenAI for Beginners", url:"https://github.com/microsoft/generative-ai-for-beginners", h:4},
       ]},
-      {n:8, phase:2, focus:"Cloud e segurança", goal:"Tech spec do agente de triagem com arquitetura, custo e riscos (P2).", work:"Pergunte ao engenheiro responsável quanto custa a infra do produto por mês e o que dobraria a conta. Peça revisão da tech spec.", tasks:[
+      {n:8, phase:2, focus:"Cloud e segurança", goal:"Tech spec do agente de triagem com arquitetura, custo e riscos (P2), com review commitado. Memo 2 no decision-log.", work:"Leve o modelo de custo (memo 2) ao engenheiro responsável pela infra e peça pra apontar o que está errado. Peça revisão da tech spec e commite os comentários.", tasks:[
         {id:"t17", type:"estudo", title:"AWS Skill Builder, Cloud Practitioner Essentials (EC2, S3, RDS, Lambda, SQS, IAM)", res:"AWS Skill Builder", url:"https://skillbuilder.aws", h:4},
         {id:"t18", type:"leitura", title:"OWASP Top 10: nomear os 10 riscos e um exemplo de feature que toca em cada", res:"OWASP", url:"https://owasp.org/www-project-top-ten/", h:1},
         {id:"t19", type:"artefato", title:"Tech spec do agente de triagem: arquitetura, estimativa de custo, risk register (LGPD, alucinação, latência)", res:"ADR", url:"https://adr.github.io", h:2.5},
+        {id:"t42", type:"prática", title:"Memo 2: quanto custa a infra do produto por mês, a partir da fatura real, e o que dobra a conta — recomendação e o que rebateram", res:"decision-log", url:"", h:1.5},
       ]},
-      {n:9, phase:3, focus:"Shipping", goal:"portfolio-api no ar com Docker, testes e CI verde (P3).", work:"Acompanhe um deploy real do time do início ao fim. Anote cada etapa e quanto tempo levou.", tasks:[
+      {n:9, phase:3, focus:"Shipping I: build e CI", goal:"webhook-gateway rodando local com testes e CI verde (P3).", work:"Acompanhe um deploy real do time do início ao fim. Anote cada etapa e quanto tempo levou.", tasks:[
         {id:"t20", type:"estudo", title:"Docker, Get Started (tutorial oficial)", res:"Docker", url:"https://docs.docker.com/get-started/", h:2},
-        {id:"t21", type:"artefato", title:"portfolio-api: FastAPI + testes + Dockerfile + GitHub Actions + deploy em free tier + README com ADRs", res:"FastAPI", url:"https://fastapi.tiangolo.com", h:11},
+        {id:"t21", type:"artefato", title:"webhook-gateway em FastAPI: validação HMAC, fila, retry com backoff, idempotência por event_id e DLQ + testes + Dockerfile + GitHub Actions verde", res:"FastAPI", url:"https://fastapi.tiangolo.com", h:6},
       ]},
-      {n:10, phase:3, focus:"Evals de IA", goal:"Agente de triagem medido: acurácia, custo e latência por versão (P4).", work:"Proponha ao time um eval mínimo para uma feature ou automação existente: 20 casos, uma métrica, um threshold.", tasks:[
+      {n:10, phase:3, focus:"Shipping II: deploy, observabilidade e DORA", goal:"webhook-gateway no ar, com SLO definido e painel mínimo (P3). Memo 3 no decision-log.", work:"Abra o dashboard principal do produto com um engenheiro e peça pra explicar os 3 gráficos que ele olha primeiro. Pergunte quais são as métricas DORA do time — ou como ele as estimaria.", tasks:[
+        {id:"t33", type:"artefato", title:"Deploy do webhook-gateway em free tier (Render, Fly.io ou Railway) + README com diagrama e ADRs", res:"FastAPI", url:"https://fastapi.tiangolo.com/deployment/", h:3.5},
+        {id:"t34", type:"leitura", title:"Google SRE Book: Monitoring Distributed Systems (golden signals) + Service Level Objectives", res:"Google SRE", url:"https://sre.google/sre-book/monitoring-distributed-systems/", h:2},
+        {id:"t35", type:"leitura", title:"DORA: as métricas de entrega de software e o que cada uma diz sobre o time", res:"DORA", url:"https://dora.dev/guides/dora-metrics-four-keys/", h:0.5},
+        {id:"t36", type:"prática", title:"SRE Book: Postmortem Culture + 2 postmortems públicos (danluu/post-mortems); definir 1 SLI/SLO e um painel mínimo (latência, erros) para o gateway", res:"Postmortems", url:"https://github.com/danluu/post-mortems", h:1},
+        {id:"t43", type:"prática", title:"Memo 3: participar de um postmortem ou incident review do time e escrever o seu antes de ler o oficial — causa, impacto, o que você teria perguntado", res:"decision-log", url:"", h:2},
+      ]},
+      {n:11, phase:3, focus:"Evals de IA I: dataset e harness", goal:"Eval harness rodando: acurácia por categoria e taxa de abstenção por modelo e prompt (P4).", work:"Escolha a feature de IA ou automação existente do produto que vai ser o memo 4 e combine com o dono dela: 20 casos, uma métrica, um threshold.", tasks:[
         {id:"t22", type:"estudo", title:"promptfoo: setup do primeiro eval", res:"promptfoo", url:"https://www.promptfoo.dev", h:1.5},
-        {id:"t23", type:"artefato", title:"Eval harness (dataset rotulado, 2 a 3 modelos, 2 a 3 prompts) + painel de custo, latência e acurácia + guardrails de PII", res:"promptfoo", url:"https://www.promptfoo.dev", h:11},
+        {id:"t37", type:"leitura", title:"Hamel Husain: AI Evals FAQ — error analysis, quantos exemplos, LLM-as-judge", res:"hamel.dev", url:"https://hamel.dev/blog/posts/evals-faq/", h:0.5},
+        {id:"t23", type:"artefato", title:"Eval harness: dataset rotulado (100 a 200 tickets), 2 a 3 modelos, 2 a 3 versões de prompt, rodando no promptfoo", res:"promptfoo", url:"https://www.promptfoo.dev", h:6},
       ]},
-      {n:11, phase:3, focus:"Dados", goal:"product-analytics-olist com queries, dashboard e PM memo (P5).", work:"Use uma das queries do P5 como modelo para uma pergunta real do produto e apresente o resultado numa reunião.", tasks:[
+      {n:12, phase:3, focus:"Evals de IA II: operação e guardrails", goal:"Agente de triagem medido e operável: custo, latência e acurácia por versão, com guardrails de PII (P4). Memo 4 no decision-log.", work:"Leve o painel a um engenheiro e pergunte: se isso fosse pra produção, o que ele exigiria antes? Anote as exigências como riscos no risk register do P2.", tasks:[
+        {id:"t39", type:"leitura", title:"Anthropic Engineering: Demystifying evals for AI agents", res:"Anthropic", url:"https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents", h:1},
+        {id:"t38", type:"artefato", title:"Painel de custo por ticket, latência p50/p95 e acurácia por versão (Streamlit) + guardrails: mascaramento de PII antes do modelo e fallback humano abaixo do threshold", res:"Streamlit", url:"https://streamlit.io", h:5},
+        {id:"t44", type:"prática", title:"Memo 4: eval de 20 casos rodado numa feature de IA ou automação existente do produto — resultado, threshold proposto e o que o time rebateu", res:"decision-log", url:"", h:2},
+      ]},
+      {n:13, phase:3, focus:"Dados", goal:"product-analytics-olist com queries, dashboard e PM memo (P5).", work:"Use uma das queries do P5 como modelo para uma pergunta real do produto e apresente o resultado numa reunião.", tasks:[
         {id:"t24", type:"estudo", title:"Mode SQL Tutorial, nível Intermediate (window functions)", res:"Mode SQL", url:"https://mode.com/sql-tutorial", h:2},
         {id:"t25", type:"artefato", title:"8 queries de PM sobre o dataset Olist (funil, atraso × review, cohort) + dashboard + PM memo de 1 página", res:"Dataset Olist", url:"https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce", h:5},
       ]},
-      {n:12, phase:3, focus:"Consolidação", goal:"4 repos fixados, site atualizado, primeiro post técnico publicado.", work:"Use as decisões dos projetos como cases numa conversa com seu gestor ou numa entrevista. Refaça o checklist.", tasks:[
+      {n:14, phase:3, focus:"Consolidação", goal:"4 repos fixados, site atualizado, primeiro post técnico publicado. Memo 5 fecha o decision-log.", work:"Use as decisões dos projetos e os memos como cases numa conversa com seu gestor ou numa entrevista. Refaça o checklist.", tasks:[
         {id:"t26", type:"artefato", title:"Fixar os 4 repos, adicionar 'Technical work' ao site e publicar o primeiro post técnico no LinkedIn", res:"eraldoneto.com", url:"https://eraldoneto.com", h:3},
         {id:"t27", type:"artefato", title:"Design doc #3: rate limiter (algoritmos, onde fica, trade-offs)", res:"System Design Primer", url:"https://github.com/donnemartin/system-design-primer", h:2},
-        {id:"t28", type:"prática", title:"Refazer a autoavaliação Tech PM (revisão da semana 12)", res:"Autoavaliação", url:"", h:0.5},
+        {id:"t45", type:"prática", title:"Memo 5: consolidar o log de estimativas — seu erro médio, onde errou mais, o que mudou entre a semana 1 e a 14", res:"decision-log", url:"", h:1.5},
+        {id:"t28", type:"prática", title:"Refazer a autoavaliação Tech PM (revisão da semana 14)", res:"Autoavaliação", url:"", h:0.5},
       ]},
     ],
     projects: [
+      {id:"P0", repo:"decision-log", proves:"Você decide com fatos do seu produto, não com opinião.", priv:true,
+        pitch:"Cinco memos de uma página sobre o produto que você gerencia, mais um log de estimativas. Privado ou anonimizado. É o único artefato que mostra julgamento — os outros cinco são sandbox, e em sandbox ninguém te rebate.",
+        content:[
+          "Cada memo tem quatro partes: a pergunta, os fatos que você foi buscar (com a fonte: a query, a fatura, o log), a sua recomendação, e o que o engenheiro rebateu quando você apresentou. A última parte é a que vale.",
+          "O log de estimativas é a disciplina de fundo: toda semana, antes de o engenheiro estimar, você escreve a sua estimativa e o porquê. No fim, compara. Dez minutos por semana; é o que separa pleno de sênior.",
+        ],
+        blocksTitle:"Os cinco memos",
+        blocks:[
+          {label:"1 · Query real", text:"Semana 4. Uma pergunta do roadmap respondida com SQL seu, no banco do produto. Fato que você vai buscar: a query."},
+          {label:"2 · Custo real", text:"Semana 8. Quanto custa a infra por mês e o que dobra a conta, a partir da fatura de cloud. Fato: a fatura."},
+          {label:"3 · Postmortem seu", text:"Semana 10. Participe de um postmortem ou incident review e escreva o seu antes de ler o oficial. Fato: o canal de incidentes."},
+          {label:"4 · Eval real", text:"Semana 12. Vinte casos rodados numa feature de IA ou automação existente, com threshold proposto. Fato: os dados de produção."},
+          {label:"5 · Estimativa × real", text:"Semana 14. Seu erro médio ao longo das 14 semanas, onde errou mais e o que mudou. Fato: o log."},
+        ],
+        callouts:[
+          {tone:"tip", title:"Por que este projeto existe", text:"Os outros cinco sobem o piso e o portfólio. Este é o que tira da zona de conforto: fato real, chamada sua, contraditório de quem conhece o sistema. Se você pular um memo, o plano vira curso de novo."},
+        ],
+        items:[
+        {id:"d28", t:"Log de estimativas criado, com a primeira entrada registrada", w:1},
+        {id:"d23", t:"Memo 1: pergunta do roadmap respondida com SQL no banco real", w:4},
+        {id:"d24", t:"Memo 2: custo da infra a partir da fatura e o que dobra a conta", w:8},
+        {id:"d25", t:"Memo 3: postmortem seu de um incidente real, antes do oficial", w:10},
+        {id:"d26", t:"Memo 4: eval de 20 casos numa feature de IA existente do produto", w:12},
+        {id:"d27", t:"Memo 5: estimativa × real ao longo das 14 semanas", w:14},
+      ]},
       {id:"P1", repo:"system-design-notebook", proves:"Você lê e desenha sistemas.", pin:true,
         pitch:"Seu caderno público de arquitetura. É o repositório que acompanha a trilha inteira e o primeiro que um recrutador técnico abre.",
         content:[
@@ -665,7 +715,9 @@ class Component extends DCLogic {
         {id:"d2", t:"Notas por módulo com diagramas Mermaid", w:2},
         {id:"d3", t:"Design doc #1: encurtador de URL", w:3},
         {id:"d4", t:"Design doc #2: sistema de notificações", w:4},
-        {id:"d5", t:"Design doc #3: rate limiter", w:12},
+        {id:"d5", t:"Design doc #3: rate limiter", w:14},
+        {id:"d19", t:"Review de um engenheiro commitado no design doc #1", w:3},
+        {id:"d20", t:"Review de um engenheiro commitado no design doc #2", w:4},
       ]},
       {id:"P2", repo:"tech-pm-spec-kit", proves:"Você escreve o artefato que engenheiro confia.", pin:true,
         pitch:"Templates reutilizáveis mais um exemplo completo preenchido. O exemplo é o que importa — template vazio qualquer um copia da internet.",
@@ -690,28 +742,32 @@ class Component extends DCLogic {
         {id:"d7", t:"PRD com métricas e plano de evals", w:6},
         {id:"d8", t:"Tech spec com arquitetura, custo e risk register", w:8},
         {id:"d9", t:"Templates reutilizáveis: PRD, tech spec, RFC, ADR, risk register, eval plan", w:8},
+        {id:"d21", t:"Review de um engenheiro commitado na tech spec", w:8},
       ]},
-      {id:"P3", repo:"portfolio-api", proves:"Você entende build, test e deploy de ponta a ponta.",
-        pitch:"Uma API pequena, com pipeline de gente grande. O valor está no pipeline, não na API.",
+      {id:"P3", repo:"webhook-gateway", proves:"Você entende build, test, deploy e entrega confiável de ponta a ponta.",
+        pitch:"Um serviço pequeno, com pipeline de gente grande. Recebe eventos de um provedor externo e garante que nenhum se perde nem se repete — o valor está no pipeline e na confiabilidade, não no tamanho da API.",
         content:[
-          "API REST em Python + FastAPI expondo seus projetos e cases: GET /projects, GET /projects/{id}, filtros por tag e ano.",
-          "Documentação OpenAPI automática, testes com pytest cobrindo os caminhos felizes e ao menos um caso de erro.",
-          "Dockerfile que sobe a aplicação num comando, GitHub Actions rodando lint e testes a cada pull request.",
-          "Deploy num free tier (Render, Fly.io ou Railway — os planos mudam, confirme o atual antes) e README com diagrama da arquitetura e um ADR por escolha de stack.",
+          "Endpoint em Python + FastAPI que recebe o webhook, valida a assinatura HMAC com comparação em tempo constante e rejeita replay por timestamp — antes de fazer qualquer outra coisa.",
+          "Responde 2xx rápido e enfileira; um worker processa com retry e backoff exponencial, idempotência por event_id (tabela com UNIQUE, na mesma transação do efeito) e dead-letter queue para o que falhou de vez.",
+          "Testes com pytest cobrindo assinatura válida, inválida, evento duplicado e falha com retry. Dockerfile que sobe tudo num comando. GitHub Actions rodando lint e testes a cada pull request.",
+          "Deploy num free tier (Render, Fly.io ou Railway — confirme o plano atual antes), um SLI/SLO definido e um painel mínimo de latência e erros. README com diagrama da arquitetura e um ADR por escolha de stack.",
         ],
         tools:[
           {name:"FastAPI", url:"https://fastapi.tiangolo.com"},
           {name:"Docker", url:"https://docs.docker.com/get-started/"},
           {name:"GitHub Actions", url:"https://docs.github.com/actions"},
+          {name:"Standard Webhooks", url:"https://www.standardwebhooks.com/"},
+          {name:"Stripe: webhooks", url:"https://docs.stripe.com/webhooks"},
         ],
         callouts:[
-          {tone:"tip", title:"Alternativa que eu recomendo", text:"Troque a API de portfólio por um gateway de webhook: recebe evento de um provedor externo, valida assinatura HMAC, enfileira, processa com retry e backoff, idempotência por event_id e dead-letter queue. Mesma stack, mesmo esforço de pipeline, sinal muito maior — é o problema que você já enfrentou com a API do WhatsApp/Meta na LeadConverte. Uma API que lista os próprios projetos qualquer engenheiro identifica como exercício."},
-          {tone:"warn", title:"Sobre as horas", text:"Primeiro Docker build, primeiro pipeline de CI e primeiro deploy consomem o tempo todo só em depuração. A trilha já reserva 11 h na tarefa de construção da semana 9 — se estourar, divida em duas semanas em vez de entregar pela metade."},
+          {tone:"tip", title:"Por que um gateway e não uma API de portfólio", text:"Uma API que lista os próprios projetos qualquer engenheiro identifica como exercício. Um gateway de webhook é o problema que você já enfrentou com a API do WhatsApp/Meta na LeadConverte — assinatura, entrega duplicada, retry — e dá pra contar essa história em entrevista com o repo aberto."},
+          {tone:"warn", title:"Sobre as horas", text:"Primeiro Docker build, primeiro pipeline de CI e primeiro deploy consomem o tempo todo só em depuração. Por isso são duas semanas: 6 h de construção na semana 9 e 3,5 h de deploy na semana 10. Se estourar, entregue o gateway rodando local com CI verde antes de pensar em deploy."},
         ],
         items:[
-        {id:"d10", t:"API FastAPI com docs OpenAPI e testes", w:9},
+        {id:"d10", t:"Gateway FastAPI: validação HMAC, fila, retry com backoff, idempotência por event_id, DLQ + testes", w:9},
         {id:"d11", t:"Dockerfile e CI verde no GitHub Actions", w:9},
-        {id:"d12", t:"Deploy no ar e README com ADRs", w:9},
+        {id:"d12", t:"Deploy no ar e README com diagrama e ADRs", w:10},
+        {id:"d22", t:"SLO definido e painel mínimo (latência, erros) do serviço no ar", w:10},
       ]},
       {id:"P4", repo:"support-triage-agent", proves:"Você constrói e mede produto de IA.", pin:true, star:true,
         pitch:"O projeto estrela. Junta mestrado, vivência de suporte e agentes — e é o que vai aparecer em entrevista.",
@@ -730,12 +786,12 @@ class Component extends DCLogic {
         ],
         callouts:[
           {tone:"tip", title:"Por que este vale mais que os outros", text:"A maioria dos \"AI PMs\" do mercado sabe usar ferramenta. Quase ninguém tem um artefato público mostrando que sabe avaliar e operar um sistema de IA — quanto custa, quando falha, como você prova que melhorou. É isso que o eval harness comunica."},
-          {tone:"warn", title:"Sobre as horas", text:"Só montar o dataset rotulado já consome uma semana inteira de estudo. A trilha reserva 11 h na tarefa de construção da semana 10 — trate como piso, não como teto."},
+          {tone:"warn", title:"Sobre as horas", text:"Só montar o dataset rotulado já consome uma semana inteira de estudo. A trilha separa duas semanas: 6 h para o harness na semana 11 e 5 h para painel e guardrails na semana 12 — trate como piso, não como teto."},
         ],
         items:[
         {id:"d13", t:"Protótipo: classificador + RAG rodando local", w:7},
-        {id:"d14", t:"Eval harness com dataset rotulado", w:10},
-        {id:"d15", t:"Painel de custo, latência e acurácia + guardrails de PII", w:10},
+        {id:"d14", t:"Eval harness com dataset rotulado", w:11},
+        {id:"d15", t:"Painel de custo, latência e acurácia + guardrails de PII", w:12},
       ]},
       {id:"P5", repo:"product-analytics-olist", proves:"Você tira insight do dado sem pedir a ninguém.", pin:true,
         pitch:"Rápido de fazer e muito usado em entrevista. Roda sobre o dataset da Olist, com cerca de 100 mil pedidos reais de e-commerce brasileiro.",
@@ -760,27 +816,35 @@ class Component extends DCLogic {
           {name:"Streamlit", url:"https://streamlit.io"},
         ],
         items:[
-        {id:"d16", t:"8 queries respondendo perguntas de PM", w:11},
-        {id:"d17", t:"Dashboard (Metabase ou Streamlit)", w:11},
-        {id:"d18", t:"PM memo com 3 decisões e trade-offs", w:11},
+        {id:"d16", t:"8 queries respondendo perguntas de PM", w:13},
+        {id:"d17", t:"Dashboard (Metabase ou Streamlit)", w:13},
+        {id:"d18", t:"PM memo com 3 decisões e trade-offs", w:13},
       ]},
     ],
     resources: [
       {id:"r1", skill:"Engenharia e entrega", name:"GitHub Skills", url:"https://skills.github.com", when:"Semana 1"},
       {id:"r13", skill:"Engenharia e entrega", name:"Docker: Get Started", url:"https://docs.docker.com/get-started/", when:"Semana 9"},
-      {id:"r14", skill:"Engenharia e entrega", name:"FastAPI (documentação)", url:"https://fastapi.tiangolo.com", when:"Semana 9"},
+      {id:"r14", skill:"Engenharia e entrega", name:"FastAPI (documentação)", url:"https://fastapi.tiangolo.com", when:"Semanas 9 e 10"},
+      {id:"r20", skill:"Engenharia e entrega", name:"Google SRE Book: Monitoring, SLOs e Postmortem Culture", url:"https://sre.google/sre-book/table-of-contents/", when:"Semana 10"},
+      {id:"r21", skill:"Engenharia e entrega", name:"DORA: métricas de entrega de software", url:"https://dora.dev/guides/dora-metrics-four-keys/", when:"Semana 10"},
+      {id:"r22", skill:"Engenharia e entrega", name:"danluu/post-mortems (postmortems públicos)", url:"https://github.com/danluu/post-mortems", when:"Semana 10"},
       {id:"r2", skill:"System design", name:"freeCodeCamp: Learn Software System Design", url:"https://www.freecodecamp.org/news/learn-software-system-design/", when:"Semanas 2 e 3"},
-      {id:"r3", skill:"System design", name:"System Design Primer (referência)", url:"https://github.com/donnemartin/system-design-primer", when:"Semanas 2, 3 e 12"},
+      {id:"r3", skill:"System design", name:"System Design Primer (referência)", url:"https://github.com/donnemartin/system-design-primer", when:"Semanas 2, 3 e 14"},
       {id:"r4", skill:"System design", name:"C4 Model + ADR", url:"https://c4model.com", when:"Semanas 3 e 4"},
       {id:"r5", skill:"Dados e SQL", name:"SQLBolt", url:"https://sqlbolt.com", when:"Semana 4"},
-      {id:"r16", skill:"Dados e SQL", name:"Mode SQL Tutorial", url:"https://mode.com/sql-tutorial", when:"Semana 11"},
-      {id:"r17", skill:"Dados e SQL", name:"Dataset Olist (Kaggle)", url:"https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce", when:"Semana 11"},
+      {id:"r16", skill:"Dados e SQL", name:"Mode SQL Tutorial", url:"https://mode.com/sql-tutorial", when:"Semana 13"},
+      {id:"r17", skill:"Dados e SQL", name:"Dataset Olist (Kaggle)", url:"https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce", when:"Semana 13"},
       {id:"r6", skill:"Escrita técnica", name:"Google Technical Writing One", url:"https://developers.google.com/tech-writing", when:"Semana 4"},
       {id:"r7", skill:"APIs", name:"OpenAPI + Swagger Editor", url:"https://editor.swagger.io", when:"Semana 5"},
+      {id:"r18", skill:"APIs", name:"Standard Webhooks (spec aberta)", url:"https://www.standardwebhooks.com/", when:"Semanas 5 e 9"},
+      {id:"r19", skill:"APIs", name:"Stripe: boas práticas de webhooks", url:"https://docs.stripe.com/webhooks", when:"Semanas 5 e 9"},
       {id:"r8", skill:"Produto de IA", name:"HelloPM: Free AI Product Management Course", url:"https://hellopm.co/free/", when:"Semana 6"},
       {id:"r9", skill:"Produto de IA", name:"Hamel Husain: Your AI Product Needs Evals", url:"https://hamel.dev/blog/posts/evals/", when:"Semana 6"},
       {id:"r10", skill:"Produto de IA", name:"Microsoft: Generative AI for Beginners", url:"https://github.com/microsoft/generative-ai-for-beginners", when:"Semana 7"},
-      {id:"r15", skill:"Produto de IA", name:"promptfoo", url:"https://www.promptfoo.dev", when:"Semana 10"},
+      {id:"r23", skill:"Produto de IA", name:"Anthropic: Define success criteria + Build evaluations", url:"https://docs.anthropic.com/en/docs/build-with-claude/develop-tests", when:"Semana 6"},
+      {id:"r15", skill:"Produto de IA", name:"promptfoo", url:"https://www.promptfoo.dev", when:"Semanas 11 e 12"},
+      {id:"r24", skill:"Produto de IA", name:"Hamel Husain: AI Evals FAQ", url:"https://hamel.dev/blog/posts/evals-faq/", when:"Semana 11"},
+      {id:"r25", skill:"Produto de IA", name:"Anthropic Engineering: Demystifying evals for AI agents", url:"https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents", when:"Semana 12"},
       {id:"r11", skill:"Cloud", name:"AWS Skill Builder: Cloud Practitioner Essentials", url:"https://skillbuilder.aws", when:"Semana 8"},
       {id:"r12", skill:"Segurança", name:"OWASP Top 10", url:"https://owasp.org/www-project-top-ten/", when:"Semana 8"},
     ],
@@ -791,6 +855,7 @@ class Component extends DCLogic {
       {name:"Postman Academy", url:"https://academy.postman.com", why:"se sentir falta de prática em testar APIs"},
       {name:"AWS Well-Architected", url:"https://aws.amazon.com/architecture/well-architected/", why:"checklist para revisar a tech spec da semana 8"},
       {name:"Metabase", url:"https://www.metabase.com", why:"dashboard do P5 em 10 minutos via Docker"},
+      {name:"Grafana tutorials", url:"https://grafana.com/tutorials/", why:"se quiser o painel do gateway (P3) em Grafana em vez de Streamlit"},
     ],
     checklist: [
       "Desenho em 10 minutos a arquitetura do produto que gerencio",
@@ -804,7 +869,7 @@ class Component extends DCLogic {
       "Reconheço quando uma feature toca no OWASP Top 10 ou em base legal da LGPD",
       "Sei as 4 métricas DORA do meu time e o que faria para melhorar a pior delas",
     ],
-    reviews: ["Semana 0", "Semana 4", "Semana 8", "Semana 12"],
+    reviews: ["Semana 0", "Semana 4", "Semana 8", "Semana 14"],
   };
 
   constructor(p){
@@ -838,7 +903,7 @@ class Component extends DCLogic {
   ws(n){ return new Date(this.sd().getTime() + (n-1)*7*this.DAY); }
   we(n){ return new Date(this.ws(n).getTime() + 6*this.DAY); }
   todayD(){ const t = new Date(); return new Date(t.getFullYear(), t.getMonth(), t.getDate()); }
-  cw(){ const diff = Math.floor((this.todayD() - this.sd())/this.DAY); if(diff < 0) return 0; return Math.min(13, Math.floor(diff/7)+1); }
+  cw(){ const diff = Math.floor((this.todayD() - this.sd())/this.DAY); if(diff < 0) return 0; return Math.min(this.PLAN.weeks.length + 1, Math.floor(diff/7)+1); }
   fmtDate(d, y){ const o = {day:"2-digit", month:"short"}; if(y) o.year = "numeric"; return d.toLocaleDateString("pt-BR", o).replace(/\./g, ""); }
   range(n){ return this.fmtDate(this.ws(n)) + " – " + this.fmtDate(this.we(n)); }
   fmtH(h){ return (Math.round(h*10)/10).toString().replace(".", ",") + " h"; }
@@ -902,7 +967,7 @@ class Component extends DCLogic {
   }
 
   renderVals(){
-    const P = this.PLAN, d = this.state.d, v = this.state.view, cw = this.cw(), all = this.allStats();
+    const P = this.PLAN, N = P.weeks.length, d = this.state.d, v = this.state.view, cw = this.cw(), all = this.allStats();
     const projDone = P.projects.reduce((a,p) => a + this.projStats(p).done, 0);
     const projTotal = P.projects.reduce((a,p) => a + p.items.length, 0);
     const weeksDone = P.weeks.filter(w => this.weekStats(w).pct === 1).length;
@@ -917,11 +982,11 @@ class Component extends DCLogic {
 
     let eyebrow, title, sub;
     if(cw === 0){ eyebrow = "Começa em " + this.fmtDate(this.sd(), true); title = "Tudo pronto para começar"; sub = "Reserve os blocos de estudo na agenda e responda a autoavaliação da semana 0 — é ela que mostra o quanto você evoluiu no fim."; }
-    else if(cw === 13){ eyebrow = "Trilha concluída"; title = "12 semanas percorridas"; sub = "Refaça a autoavaliação e compare com a semana 0."; }
-    else { const w = P.weeks[cw-1]; eyebrow = "Semana " + cw + " de 12 · " + this.range(cw); title = w.focus; sub = w.goal; }
+    else if(cw === N+1){ eyebrow = "Trilha concluída"; title = N + " semanas percorridas"; sub = "Refaça a autoavaliação e compare com a semana 0."; }
+    else { const w = P.weeks[cw-1]; eyebrow = "Semana " + cw + " de " + N + " · " + this.range(cw); title = w.focus; sub = w.goal; }
 
     const firstOpen = P.weeks.find(w => this.weekStats(w).pct < 1);
-    const autoWeek = firstOpen ? firstOpen.n : 12;
+    const autoWeek = firstOpen ? firstOpen.n : N;
     const fw = this.state.panelWeek || autoWeek;
     const fwk = P.weeks[fw-1];
     const fws = this.weekStats(fwk);
@@ -984,6 +1049,7 @@ class Component extends DCLogic {
       const chips = [{label: p.id, style: chipBaseP+"background:#F1F2F7;color:#6B7080"}];
       if(p.star) chips.push({label: "projeto estrela", style: chipBaseP+"background:#FCF2E5;color:#B57A28"});
       if(p.pin) chips.push({label: "fixar no perfil", style: chipBaseP+"background:#EFEFFC;color:#5251C9"});
+      if(p.priv) chips.push({label: "privado", style: chipBaseP+"background:#E8F5F0;color:#12886A"});
       return {
         repo: p.repo, proves: p.proves, count: s.done + "/" + s.total, badge: badge(s.pct===1), fill: barFill(s.pct, s.pct===1),
         chips, open,
@@ -1026,7 +1092,7 @@ class Component extends DCLogic {
       }),
     }));
 
-    const ckCol = this.state.ckCol === null ? (cw < 4 ? 0 : cw < 8 ? 1 : cw < 12 ? 2 : 3) : this.state.ckCol;
+    const ckCol = this.state.ckCol === null ? (cw < 4 ? 0 : cw < 8 ? 1 : cw < N ? 2 : 3) : this.state.ckCol;
     const tabBase = "border:0;border-radius:999px;padding:7px 14px;font-size:13px;font-weight:600;cursor:pointer;";
     const ckTabs = P.reviews.map((r, i) => ({
       label: r,
@@ -1057,13 +1123,15 @@ class Component extends DCLogic {
       goFocusWeek: () => this.go("semanas", fw),
       ctaLabel: (fws.pct === 1 ? "Revisar a semana " : fws.done > 0 ? "Continuar a semana " : "Abrir a semana ") + fw,
       eyebrow, title, sub, chips,
+      chipsGrid: "display:grid;grid-template-columns:repeat(" + N + ",minmax(0,1fr));gap:6px",
+      phaseGrid: "display:grid;grid-template-columns:" + P.phases.map(ph => ph.weeks.length + "fr").join(" ") + ";gap:6px;margin-top:10px",
       overallPct: this.pct(all.pct),
       ringStyle: this.ring(all.pct, 116, "rgba(255,255,255,.22)", "#fff"),
       phaseLabels: P.phases.map(p => ({label: p.name})),
       stats: [
         {l: "Tarefas concluídas", v: all.done + "/" + all.total, badge: badge(all.pct===1), fill: barFill(all.pct, all.pct===1)},
-        {l: "Semanas fechadas", v: weeksDone + "/12", badge: badge(weeksDone===12), fill: barFill(weeksDone/12, weeksDone===12)},
-        {l: "Entregáveis no portfólio", v: projDone + "/" + projTotal, badge: badge(projDone===projTotal), fill: barFill(projTotal ? projDone/projTotal : 0, projDone===projTotal)},
+        {l: "Semanas fechadas", v: weeksDone + "/" + N, badge: badge(weeksDone===N), fill: barFill(weeksDone/N, weeksDone===N)},
+        {l: "Entregáveis dos projetos", v: projDone + "/" + projTotal, badge: badge(projDone===projTotal), fill: barFill(projTotal ? projDone/projTotal : 0, projDone===projTotal)},
       ],
       focusLabel: fws.pct === 1 ? "Semana concluída" : fws.done > 0 ? "Continue de onde parou" : "Comece por aqui",
       focusWeekLabel: "Semana " + fw,
