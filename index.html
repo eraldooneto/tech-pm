@@ -214,7 +214,7 @@
         </div>
         <div style="margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,255,.18)">
           <div style="{{ chipsGrid }}">
-            <sc-for list="{{ chips }}" as="c" hint-placeholder-count="14">
+            <sc-for list="{{ chips }}" as="c" hint-placeholder-count="13">
               <button sc-camel-on-click="{{ c.go }}" title="{{ c.title }}" style="{{ c.style }}">{{ c.n }}</button>
             </sc-for>
           </div>
@@ -309,12 +309,16 @@
   <sc-if value="{{ isSemanas }}">
     <div>
       <h1 style="margin:8px 0 0;font-size:clamp(26px,3vw,34px);font-weight:700;letter-spacing:-.03em">Sua trilha</h1>
-      <p style="margin:8px 0 26px;color:#6B7080;max-width:540px">Catorze semanas, uma de cada vez. Abra a semana, marque o que concluiu e guarde uma nota do que aprendeu.</p>
-      <div style="display:flex;gap:12px;align-items:flex-start;padding:14px 18px;margin:-12px 0 22px;background:#F4F8F6;border-radius:16px;font-size:13.5px;line-height:1.55;color:#585C6C;max-width:720px">
-        <span style="flex:0 0 auto;font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#5FA98D;padding-top:2px">Toda semana</span>
-        <span>10 minutos: antes de o engenheiro estimar, escreva a sua estimativa e o porquê no decision-log. Na semana 14 você compara. É o hábito que mais muda a conversa técnica — e o mais fácil de pular.</span>
+      <p style="margin:8px 0 26px;color:#6B7080;max-width:540px">Treze semanas, uma de cada vez. Abra a semana, marque o que concluiu e guarde uma nota do que aprendeu.</p>
+      <div style="padding:14px 18px;margin:-12px 0 22px;background:#F4F8F6;border-radius:16px;font-size:13.5px;line-height:1.55;color:#585C6C;max-width:720px">
+        <span style="display:block;font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#5FA98D;margin-bottom:8px">Toda semana, fora das tarefas</span>
+        <div style="display:grid;grid-template-columns:auto 1fr;gap:6px 12px">
+          <span style="font-weight:600;color:#191B28">Estimativa</span><span>antes de o engenheiro estimar, escreva a sua e o porquê no decision-log. Na semana 13 você compara.</span>
+          <span style="font-weight:600;color:#191B28">Um PR</span><span>20 minutos: o que muda, o que pode quebrar. Uma frase no decision-log.</span>
+          <span style="font-weight:600;color:#191B28">Uma pergunta</span><span>numa reunião técnica, pergunte “por que X e não Y?” e anote a resposta. É o rep de falar, não só de ler.</span>
+        </div>
       </div>
-      <sc-for list="{{ weeks }}" as="w" hint-placeholder-count="14">
+      <sc-for list="{{ weeks }}" as="w" hint-placeholder-count="13">
         <div style="{{ w.cardStyle }}">
           <button sc-camel-on-click="{{ w.toggle }}" style="width:100%;display:grid;grid-template-columns:46px 1fr auto;gap:16px;align-items:center;background:none;border:0;padding:18px 22px;cursor:pointer;text-align:left">
             <span style="{{ w.numStyle }}">{{ w.n }}</span>
@@ -371,7 +375,7 @@
   <sc-if value="{{ isProjetos }}">
     <div>
       <h1 style="margin:8px 0 0;font-size:clamp(26px,3vw,34px);font-weight:700;letter-spacing:-.03em">Projetos</h1>
-      <p style="margin:8px 0 20px;color:#6B7080;max-width:560px">Seis repositórios: cinco públicos e um privado. É isso que fica quando as 14 semanas acabam. No fim, fixe no perfil do GitHub os quatro marcados abaixo — o webhook-gateway sustenta os outros, e o decision-log é seu.</p>
+      <p style="margin:8px 0 20px;color:#6B7080;max-width:560px">Seis repositórios: cinco públicos e um privado. É isso que fica quando as 13 semanas acabam. No fim, fixe no perfil do GitHub os quatro marcados abaixo — o webhook-gateway sustenta os outros, e o decision-log é seu.</p>
 
       <section style="background:#fff;border:1px solid #EDEEF4;border-radius:22px;padding:24px 26px;margin-bottom:14px;box-shadow:0 1px 2px rgba(25,27,40,.04)">
         <h2 style="margin:0;font-size:16.5px;font-weight:700;letter-spacing:-.02em">Regras que valem para todos</h2>
@@ -488,7 +492,7 @@
       <sc-if value="{{ showReserve }}" hint-placeholder-val="{{ true }}">
         <section style="margin-top:30px">
           <h2 style="margin:0;font-size:17px;font-weight:700;letter-spacing:-.02em">Reserva</h2>
-          <p style="margin:6px 0 14px;font-size:14px;color:#7A7F90">Fora das 14 semanas. Use só quando um item específico pedir.</p>
+          <p style="margin:6px 0 14px;font-size:14px;color:#7A7F90">Fora das 13 semanas. Use só quando um item específico pedir.</p>
           <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:12px">
             <sc-for list="{{ reserve }}" as="r" hint-placeholder-count="6">
               <div style="background:#fff;border:1px solid #EDEEF4;border-radius:18px;padding:16px 18px">
@@ -505,7 +509,7 @@
   <sc-if value="{{ isChecklist }}">
     <div>
       <h1 style="margin:8px 0 0;font-size:clamp(26px,3vw,34px);font-weight:700;letter-spacing:-.03em">Autoavaliação</h1>
-      <p style="margin:8px 0 22px;color:#6B7080;max-width:560px">Responda Sim só para o que você consegue fazer hoje, sem preparação. Refaça nas semanas 0, 4, 8 e 14.</p>
+      <p style="margin:8px 0 22px;color:#6B7080;max-width:560px">Responda Sim só para o que você consegue fazer hoje, sem preparação. Refaça nas semanas 0, 4, 8 e 13.</p>
 
       <section style="background:#fff;border:1px solid #EDEEF4;border-radius:22px;padding:22px 26px;box-shadow:0 1px 2px rgba(25,27,40,.04);display:flex;align-items:center;gap:26px;flex-wrap:wrap">
         <div style="display:flex;align-items:center;gap:16px">
@@ -516,7 +520,7 @@
           </div>
           <div>
             <div style="font-size:15px;font-weight:600">{{ ckColLabel }}</div>
-            <div style="font-size:13.5px;color:#8C90A0">meta de 80% na semana 14</div>
+            <div style="font-size:13.5px;color:#8C90A0">meta de 80% na semana 13</div>
           </div>
         </div>
         <div style="display:flex;gap:4px;flex-wrap:wrap;margin-left:auto;background:#F4F5F9;padding:4px;border-radius:999px">
@@ -589,7 +593,7 @@ class Component extends DCLogic {
     phases: [
       {n:1, name:"Fase 1 · Fundamentos", weeks:[1,2,3,4]},
       {n:2, name:"Fase 2 · APIs, IA e cloud", weeks:[5,6,7,8]},
-      {n:3, name:"Fase 3 · Construir e publicar", weeks:[9,10,11,12,13,14]},
+      {n:3, name:"Fase 3 · Construir e publicar", weeks:[9,10,11,12,13]},
     ],
     weeks: [
       {n:1, phase:1, focus:"Git, GitHub e pipeline", goal:"Repositório system-design-notebook criado, README de perfil e decision-log iniciado.", work:"Abra o repositório do produto que você gerencia e leia o último PR mesclado. Anote o que não entendeu.", tasks:[
@@ -603,44 +607,45 @@ class Component extends DCLogic {
         {id:"t29", type:"artefato", title:"Desenhar a arquitetura do produto que você gerencia (componentes, fluxo de dados, onde está o risco), pedir correção a um engenheiro e commitar diagrama + correções no notebook", res:"Mermaid", url:"https://mermaid.js.org", h:1.5},
       ]},
       {n:3, phase:1, focus:"System design II e APIs", goal:"Design doc #1: encurtador de URL, com review de engenheiro commitado.", work:"Leia dois PRs abertos do time. Para cada um, escreva em uma frase o que muda e o que pode quebrar. Peça a um engenheiro para revisar o design doc #1 e commite os comentários.", tasks:[
-        {id:"t5", type:"estudo", title:"freeCodeCamp (parte 2): API design, REST, GraphQL, autenticação e segurança", res:"freeCodeCamp", url:"https://www.freecodecamp.org/news/learn-software-system-design/", h:2},
+        {id:"t5", type:"estudo", title:"freeCodeCamp (parte 2): só API design, REST e autenticação", res:"freeCodeCamp", url:"https://www.freecodecamp.org/news/learn-software-system-design/", h:1.5},
         {id:"t6", type:"artefato", title:"Design doc #1: encurtador de URL (C4 nível 1 e 2, ADR, estimativa de capacidade)", res:"C4 Model", url:"https://c4model.com", h:3},
         {id:"t30", type:"prática", title:"Percorrer uma request de ponta a ponta no código do seu produto (rota → handler → serviço → banco → resposta) e desenhar o fluxo no notebook", res:"Repositório do produto", url:"", h:2},
       ]},
       {n:4, phase:1, focus:"SQL e escrita técnica", goal:"Design doc #2: sistema de notificações, com review commitado. Memo 1 no decision-log.", work:"Apresente o resultado da sua query (memo 1) numa reunião do time, com a recomendação. Anote o que rebateram. Peça revisão do design doc #2.", tasks:[
-        {id:"t7", type:"estudo", title:"SQLBolt, todas as lições", res:"SQLBolt", url:"https://sqlbolt.com", h:2.5},
-        {id:"t8", type:"estudo", title:"Google Technical Writing One", res:"Google Tech Writing", url:"https://developers.google.com/tech-writing", h:2.5},
+        {id:"t7", type:"estudo", title:"SQLBolt, todas as lições", res:"SQLBolt", url:"https://sqlbolt.com", h:2},
+        {id:"t8", type:"estudo", title:"Google Technical Writing One", res:"Google Tech Writing", url:"https://developers.google.com/tech-writing", h:1.5},
         {id:"t9", type:"artefato", title:"Design doc #2: sistema de notificações (filas, retries, canais)", res:"ADR", url:"https://adr.github.io", h:2},
         {id:"t41", type:"prática", title:"Memo 1: uma pergunta real do roadmap respondida com SQL seu, no banco do produto — fatos, recomendação e o que o engenheiro rebateu", res:"decision-log", url:"", h:1.5},
       ]},
-      {n:5, phase:2, focus:"Contratos de API e webhooks", goal:"Contrato OpenAPI do agente de triagem de tickets (P2).", work:"Escolha um endpoint real do produto e compare com o que aprendeu: versionamento, erros, paginação, auth. O que falta? Se o produto recebe webhooks, cheque assinatura e idempotência.", tasks:[
-        {id:"t10", type:"estudo", title:"OpenAPI Specification com o Swagger Editor", res:"Swagger Editor", url:"https://editor.swagger.io", h:2},
+      {n:5, phase:2, focus:"Contratos de API e webhooks", goal:"Contrato OpenAPI do agente de triagem (P2) e design doc #3: rate limiter (P1).", work:"Escolha um endpoint real do produto e compare com o que aprendeu: versionamento, erros, paginação, auth. O que falta? Se o produto recebe webhooks, cheque assinatura e idempotência.", tasks:[
+        {id:"t10", type:"estudo", title:"OpenAPI Specification com o Swagger Editor", res:"Swagger Editor", url:"https://editor.swagger.io", h:1.5},
         {id:"t11", type:"artefato", title:"Escrever o contrato OpenAPI do agente de triagem de tickets", res:"Swagger Editor", url:"https://editor.swagger.io", h:3},
-        {id:"t31", type:"leitura", title:"Standard Webhooks (spec) + Stripe, boas práticas de webhooks: assinatura HMAC, replay, idempotência por event_id, retry com backoff", res:"Standard Webhooks", url:"https://www.standardwebhooks.com/", h:1},
+        {id:"t31", type:"leitura", title:"Standard Webhooks (spec) + Stripe, boas práticas de webhooks: assinatura HMAC, replay, idempotência por event_id, retry com backoff", res:"Standard Webhooks", url:"https://www.standardwebhooks.com/", h:0.5},
+        {id:"t27", type:"artefato", title:"Design doc #3: rate limiter (algoritmos, onde fica — gateway ou serviço —, trade-offs)", res:"System Design Primer", url:"https://github.com/donnemartin/system-design-primer", h:2},
       ]},
       {n:6, phase:2, focus:"Produto de IA I", goal:"PRD do agente de triagem com métricas e plano de evals (P2).", work:"Liste as features de IA ou automações do produto e responda: como sabemos que funcionam? Que métrica diria que falharam?", tasks:[
-        {id:"t12", type:"estudo", title:"HelloPM, masterclasses de LLMs, RAG e evals", res:"HelloPM", url:"https://hellopm.co/free/", h:4},
+        {id:"t12", type:"estudo", title:"HelloPM: masterclass de evals (pule as outras)", res:"HelloPM", url:"https://hellopm.co/free/", h:2},
         {id:"t13", type:"leitura", title:"Your AI Product Needs Evals (Hamel Husain)", res:"hamel.dev", url:"https://hamel.dev/blog/posts/evals/", h:0.5},
-        {id:"t32", type:"leitura", title:"Anthropic: Define your success criteria + Define success criteria and build evaluations", res:"Claude Docs", url:"https://docs.anthropic.com/en/docs/build-with-claude/develop-tests", h:1},
+        {id:"t32", type:"leitura", title:"Anthropic: Define your success criteria + Define success criteria and build evaluations", res:"Claude Docs", url:"https://docs.anthropic.com/en/docs/build-with-claude/develop-tests", h:0.5},
         {id:"t14", type:"artefato", title:"PRD do agente de triagem: problema, métricas de sucesso, não-objetivos e plano de evals", res:"Design Docs at Google", url:"https://www.industrialempathy.com/posts/design-docs-at-google/", h:2.5},
       ]},
       {n:7, phase:2, focus:"Produto de IA II", goal:"Protótipo do agente de triagem rodando local (P4).", work:"Mostre o protótipo a um engenheiro ou ao time de suporte e pergunte o que quebraria com tickets reais.", tasks:[
-        {id:"t15", type:"estudo", title:"Microsoft Generative AI for Beginners, lições de RAG e agentes", res:"GenAI for Beginners", url:"https://github.com/microsoft/generative-ai-for-beginners", h:3},
+        {id:"t15", type:"estudo", title:"Microsoft Generative AI for Beginners, lições de RAG e agentes", res:"GenAI for Beginners", url:"https://github.com/microsoft/generative-ai-for-beginners", h:2},
         {id:"t16", type:"artefato", title:"Protótipo: classificador de tickets com LLM + RAG sobre uma base de FAQ", res:"GenAI for Beginners", url:"https://github.com/microsoft/generative-ai-for-beginners", h:4},
       ]},
       {n:8, phase:2, focus:"Cloud e segurança", goal:"Tech spec do agente de triagem com arquitetura, custo e riscos (P2), com review commitado. Memo 2 no decision-log.", work:"Leve o modelo de custo (memo 2) ao engenheiro responsável pela infra e peça pra apontar o que está errado. Peça revisão da tech spec e commite os comentários.", tasks:[
-        {id:"t17", type:"estudo", title:"AWS Skill Builder, Cloud Practitioner Essentials (EC2, S3, RDS, Lambda, SQS, IAM)", res:"AWS Skill Builder", url:"https://skillbuilder.aws", h:4},
+        {id:"t17", type:"estudo", title:"AWS Skill Builder, Cloud Practitioner: só os módulos de preço, faturamento e os serviços que o seu produto usa", res:"AWS Skill Builder", url:"https://skillbuilder.aws", h:2},
         {id:"t18", type:"leitura", title:"OWASP Top 10: nomear os 10 riscos e um exemplo de feature que toca em cada", res:"OWASP", url:"https://owasp.org/www-project-top-ten/", h:1},
         {id:"t19", type:"artefato", title:"Tech spec do agente de triagem: arquitetura, estimativa de custo, risk register (LGPD, alucinação, latência)", res:"ADR", url:"https://adr.github.io", h:2.5},
         {id:"t42", type:"prática", title:"Memo 2: quanto custa a infra do produto por mês, a partir da fatura real, e o que dobra a conta — recomendação e o que rebateram", res:"decision-log", url:"", h:1.5},
       ]},
       {n:9, phase:3, focus:"Shipping I: build e CI", goal:"webhook-gateway rodando local com testes e CI verde (P3).", work:"Acompanhe um deploy real do time do início ao fim. Anote cada etapa e quanto tempo levou.", tasks:[
-        {id:"t20", type:"estudo", title:"Docker, Get Started (tutorial oficial)", res:"Docker", url:"https://docs.docker.com/get-started/", h:2},
+        {id:"t20", type:"estudo", title:"Docker, Get Started: só as partes de containerizar uma app", res:"Docker", url:"https://docs.docker.com/get-started/", h:1},
         {id:"t21", type:"artefato", title:"webhook-gateway em FastAPI: validação HMAC, fila, retry com backoff, idempotência por event_id e DLQ + testes + Dockerfile + GitHub Actions verde", res:"FastAPI", url:"https://fastapi.tiangolo.com", h:6},
       ]},
       {n:10, phase:3, focus:"Shipping II: deploy, observabilidade e DORA", goal:"webhook-gateway no ar, com SLO definido e painel mínimo (P3). Memo 3 no decision-log.", work:"Abra o dashboard principal do produto com um engenheiro e peça pra explicar os 3 gráficos que ele olha primeiro. Pergunte quais são as métricas DORA do time — ou como ele as estimaria.", tasks:[
         {id:"t33", type:"artefato", title:"Deploy do webhook-gateway em free tier (Render, Fly.io ou Railway) + README com diagrama e ADRs", res:"FastAPI", url:"https://fastapi.tiangolo.com/deployment/", h:3.5},
-        {id:"t34", type:"leitura", title:"Google SRE Book: Monitoring Distributed Systems (golden signals) + Service Level Objectives", res:"Google SRE", url:"https://sre.google/sre-book/monitoring-distributed-systems/", h:2},
+        {id:"t34", type:"leitura", title:"Google SRE Book: capítulo Service Level Objectives inteiro + seção golden signals do Monitoring", res:"Google SRE", url:"https://sre.google/sre-book/service-level-objectives/", h:1},
         {id:"t35", type:"leitura", title:"DORA: as métricas de entrega de software e o que cada uma diz sobre o time", res:"DORA", url:"https://dora.dev/guides/dora-metrics-four-keys/", h:0.5},
         {id:"t36", type:"prática", title:"SRE Book: Postmortem Culture + 2 postmortems públicos (danluu/post-mortems); definir 1 SLI/SLO e um painel mínimo (latência, erros) para o gateway", res:"Postmortems", url:"https://github.com/danluu/post-mortems", h:1},
         {id:"t43", type:"prática", title:"Memo 3: participar de um postmortem ou incident review do time e escrever o seu antes de ler o oficial — causa, impacto, o que você teria perguntado", res:"decision-log", url:"", h:2},
@@ -651,19 +656,15 @@ class Component extends DCLogic {
         {id:"t23", type:"artefato", title:"Eval harness: dataset rotulado (100 a 200 tickets), 2 a 3 modelos, 2 a 3 versões de prompt, rodando no promptfoo", res:"promptfoo", url:"https://www.promptfoo.dev", h:6},
       ]},
       {n:12, phase:3, focus:"Evals de IA II: operação e guardrails", goal:"Agente de triagem medido e operável: custo, latência e acurácia por versão, com guardrails de PII (P4). Memo 4 no decision-log.", work:"Leve o painel a um engenheiro e pergunte: se isso fosse pra produção, o que ele exigiria antes? Anote as exigências como riscos no risk register do P2.", tasks:[
-        {id:"t39", type:"leitura", title:"Anthropic Engineering: Demystifying evals for AI agents", res:"Anthropic", url:"https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents", h:1},
+        {id:"t39", type:"leitura", title:"Anthropic Engineering: Demystifying evals for AI agents", res:"Anthropic", url:"https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents", h:0.5},
         {id:"t38", type:"artefato", title:"Painel de custo por ticket, latência p50/p95 e acurácia por versão (Streamlit) + guardrails: mascaramento de PII antes do modelo e fallback humano abaixo do threshold", res:"Streamlit", url:"https://streamlit.io", h:5},
         {id:"t44", type:"prática", title:"Memo 4: eval de 20 casos rodado numa feature de IA ou automação existente do produto — resultado, threshold proposto e o que o time rebateu", res:"decision-log", url:"", h:2},
       ]},
-      {n:13, phase:3, focus:"Dados", goal:"product-analytics-olist com queries, dashboard e PM memo (P5).", work:"Use uma das queries do P5 como modelo para uma pergunta real do produto e apresente o resultado numa reunião.", tasks:[
-        {id:"t24", type:"estudo", title:"Mode SQL Tutorial, nível Intermediate (window functions)", res:"Mode SQL", url:"https://mode.com/sql-tutorial", h:2},
+      {n:13, phase:3, focus:"Dados e consolidação", goal:"product-analytics-olist com queries, dashboard e PM memo (P5). 4 repos fixados, post técnico publicado, memo 5 fecha o decision-log.", work:"Use uma das queries do P5 como modelo para uma pergunta real do produto e apresente o resultado numa reunião. Refaça o checklist.", tasks:[
         {id:"t25", type:"artefato", title:"8 queries de PM sobre o dataset Olist (funil, atraso × review, cohort) + dashboard + PM memo de 1 página", res:"Dataset Olist", url:"https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce", h:5},
-      ]},
-      {n:14, phase:3, focus:"Consolidação", goal:"4 repos fixados, site atualizado, primeiro post técnico publicado. Memo 5 fecha o decision-log.", work:"Use as decisões dos projetos e os memos como cases numa conversa com seu gestor ou numa entrevista. Refaça o checklist.", tasks:[
-        {id:"t26", type:"artefato", title:"Fixar os 4 repos, adicionar 'Technical work' ao site e publicar o primeiro post técnico no LinkedIn", res:"eraldoneto.com", url:"https://eraldoneto.com", h:3},
-        {id:"t27", type:"artefato", title:"Design doc #3: rate limiter (algoritmos, onde fica, trade-offs)", res:"System Design Primer", url:"https://github.com/donnemartin/system-design-primer", h:2},
-        {id:"t45", type:"prática", title:"Memo 5: consolidar o log de estimativas — seu erro médio, onde errou mais, o que mudou entre a semana 1 e a 14", res:"decision-log", url:"", h:1.5},
-        {id:"t28", type:"prática", title:"Refazer a autoavaliação Tech PM (revisão da semana 14)", res:"Autoavaliação", url:"", h:0.5},
+        {id:"t26", type:"artefato", title:"Fixar os 4 repos, adicionar 'Technical work' ao site e publicar o primeiro post técnico no LinkedIn", res:"eraldoneto.com", url:"https://eraldoneto.com", h:1.5},
+        {id:"t45", type:"prática", title:"Memo 5: consolidar o log de estimativas — seu erro médio, onde errou mais, o que mudou entre a semana 1 e a 13", res:"decision-log", url:"", h:1.5},
+        {id:"t28", type:"prática", title:"Refazer a autoavaliação Tech PM (revisão da semana 13)", res:"Autoavaliação", url:"", h:0.5},
       ]},
     ],
     projects: [
@@ -679,7 +680,7 @@ class Component extends DCLogic {
           {label:"2 · Custo real", text:"Semana 8. Quanto custa a infra por mês e o que dobra a conta, a partir da fatura de cloud. Fato: a fatura."},
           {label:"3 · Postmortem seu", text:"Semana 10. Participe de um postmortem ou incident review e escreva o seu antes de ler o oficial. Fato: o canal de incidentes."},
           {label:"4 · Eval real", text:"Semana 12. Vinte casos rodados numa feature de IA ou automação existente, com threshold proposto. Fato: os dados de produção."},
-          {label:"5 · Estimativa × real", text:"Semana 14. Seu erro médio ao longo das 14 semanas, onde errou mais e o que mudou. Fato: o log."},
+          {label:"5 · Estimativa × real", text:"Semana 13. Seu erro médio ao longo das 13 semanas, onde errou mais e o que mudou. Fato: o log."},
         ],
         callouts:[
           {tone:"tip", title:"Por que este projeto existe", text:"Os outros cinco sobem o piso e o portfólio. Este é o que tira da zona de conforto: fato real, chamada sua, contraditório de quem conhece o sistema. Se você pular um memo, o plano vira curso de novo."},
@@ -690,7 +691,7 @@ class Component extends DCLogic {
         {id:"d24", t:"Memo 2: custo da infra a partir da fatura e o que dobra a conta", w:8},
         {id:"d25", t:"Memo 3: postmortem seu de um incidente real, antes do oficial", w:10},
         {id:"d26", t:"Memo 4: eval de 20 casos numa feature de IA existente do produto", w:12},
-        {id:"d27", t:"Memo 5: estimativa × real ao longo das 14 semanas", w:14},
+        {id:"d27", t:"Memo 5: estimativa × real ao longo das 13 semanas", w:13},
       ]},
       {id:"P1", repo:"system-design-notebook", proves:"Você lê e desenha sistemas.", pin:true,
         pitch:"Seu caderno público de arquitetura. É o repositório que acompanha a trilha inteira e o primeiro que um recrutador técnico abre.",
@@ -715,7 +716,7 @@ class Component extends DCLogic {
         {id:"d2", t:"Notas por módulo com diagramas Mermaid", w:2},
         {id:"d3", t:"Design doc #1: encurtador de URL", w:3},
         {id:"d4", t:"Design doc #2: sistema de notificações", w:4},
-        {id:"d5", t:"Design doc #3: rate limiter", w:14},
+        {id:"d5", t:"Design doc #3: rate limiter", w:5},
         {id:"d19", t:"Review de um engenheiro commitado no design doc #1", w:3},
         {id:"d20", t:"Review de um engenheiro commitado no design doc #2", w:4},
       ]},
@@ -829,16 +830,15 @@ class Component extends DCLogic {
       {id:"r21", skill:"Engenharia e entrega", name:"DORA: métricas de entrega de software", url:"https://dora.dev/guides/dora-metrics-four-keys/", when:"Semana 10"},
       {id:"r22", skill:"Engenharia e entrega", name:"danluu/post-mortems (postmortems públicos)", url:"https://github.com/danluu/post-mortems", when:"Semana 10"},
       {id:"r2", skill:"System design", name:"freeCodeCamp: Learn Software System Design", url:"https://www.freecodecamp.org/news/learn-software-system-design/", when:"Semanas 2 e 3"},
-      {id:"r3", skill:"System design", name:"System Design Primer (referência)", url:"https://github.com/donnemartin/system-design-primer", when:"Semanas 2, 3 e 14"},
+      {id:"r3", skill:"System design", name:"System Design Primer (referência)", url:"https://github.com/donnemartin/system-design-primer", when:"Semanas 2, 3 e 5"},
       {id:"r4", skill:"System design", name:"C4 Model + ADR", url:"https://c4model.com", when:"Semanas 3 e 4"},
       {id:"r5", skill:"Dados e SQL", name:"SQLBolt", url:"https://sqlbolt.com", when:"Semana 4"},
-      {id:"r16", skill:"Dados e SQL", name:"Mode SQL Tutorial", url:"https://mode.com/sql-tutorial", when:"Semana 13"},
       {id:"r17", skill:"Dados e SQL", name:"Dataset Olist (Kaggle)", url:"https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce", when:"Semana 13"},
       {id:"r6", skill:"Escrita técnica", name:"Google Technical Writing One", url:"https://developers.google.com/tech-writing", when:"Semana 4"},
       {id:"r7", skill:"APIs", name:"OpenAPI + Swagger Editor", url:"https://editor.swagger.io", when:"Semana 5"},
       {id:"r18", skill:"APIs", name:"Standard Webhooks (spec aberta)", url:"https://www.standardwebhooks.com/", when:"Semanas 5 e 9"},
       {id:"r19", skill:"APIs", name:"Stripe: boas práticas de webhooks", url:"https://docs.stripe.com/webhooks", when:"Semanas 5 e 9"},
-      {id:"r8", skill:"Produto de IA", name:"HelloPM: Free AI Product Management Course", url:"https://hellopm.co/free/", when:"Semana 6"},
+      {id:"r8", skill:"Produto de IA", name:"HelloPM: Free AI Product Management Course", url:"https://hellopm.co/free/", when:"Semana 6 (só evals)"},
       {id:"r9", skill:"Produto de IA", name:"Hamel Husain: Your AI Product Needs Evals", url:"https://hamel.dev/blog/posts/evals/", when:"Semana 6"},
       {id:"r10", skill:"Produto de IA", name:"Microsoft: Generative AI for Beginners", url:"https://github.com/microsoft/generative-ai-for-beginners", when:"Semana 7"},
       {id:"r23", skill:"Produto de IA", name:"Anthropic: Define success criteria + Build evaluations", url:"https://docs.anthropic.com/en/docs/build-with-claude/develop-tests", when:"Semana 6"},
@@ -856,6 +856,7 @@ class Component extends DCLogic {
       {name:"AWS Well-Architected", url:"https://aws.amazon.com/architecture/well-architected/", why:"checklist para revisar a tech spec da semana 8"},
       {name:"Metabase", url:"https://www.metabase.com", why:"dashboard do P5 em 10 minutos via Docker"},
       {name:"Grafana tutorials", url:"https://grafana.com/tutorials/", why:"se quiser o painel do gateway (P3) em Grafana em vez de Streamlit"},
+      {name:"Mode SQL Tutorial (Intermediate)", url:"https://mode.com/sql-tutorial", why:"window functions, se as queries do P5 pedirem"},
     ],
     checklist: [
       "Desenho em 10 minutos a arquitetura do produto que gerencio",
@@ -869,7 +870,7 @@ class Component extends DCLogic {
       "Reconheço quando uma feature toca no OWASP Top 10 ou em base legal da LGPD",
       "Sei as 4 métricas DORA do meu time e o que faria para melhorar a pior delas",
     ],
-    reviews: ["Semana 0", "Semana 4", "Semana 8", "Semana 14"],
+    reviews: ["Semana 0", "Semana 4", "Semana 8", "Semana 13"],
   };
 
   constructor(p){
